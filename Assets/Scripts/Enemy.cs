@@ -1,99 +1,110 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
-using UnityEngine.AI;
 
 public class Enemy : MonoBehaviour
 {
-    public GameObject character;
-    public Rigidbody2D rigibody;
-    public float horizontal = 0;
-    public bool oneTimeJump = true;
-    public Animator animator;
+
+    private float speed, distance;
+    private bool walk, attack;
+   [SerializeField] private Transform character;
+    private Rigidbody2D rigibody;
+    private int health;
+    private Animator animator;
     private string isWaiting = "Iswaiting";
     private string isAttacking = "Isattacking";
     private string isWalking = "Iswalking";
     private string isJumping = "Isjumping";
-
+    private bool oneTimeJump = true;
     void Start()
     {
-        rigibody = GetComponent<Rigidbody2D>();
+        health = 16;
         animator = GetComponent<Animator>();
+        rigibody = GetComponent<Rigidbody2D>();
     }
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.UpArrow))
-        {
-            if (oneTimeJump)
-            {
-                rigibody.AddForce(new Vector2(0, 300));
-                oneTimeJump = false;
-            }
 
-        }
-        if (Input.GetKeyDown(KeyCode.Mouse0))
-        {
-            Attack();
-        }
-        if (Input.GetKeyUp(KeyCode.Mouse0))
-        {
-            animator.SetTrigger(isWaiting);
-        }
-    }
     void FixedUpdate()
-    {
-        CharacterMove();
+    {   
         Animation();
     }
-    public void Attack()
+    
+    void Update()
     {
-        animator.SetTrigger(isAttacking);
-    }
-    public void CharacterMove()
-    {
-        horizontal = Input.GetAxisRaw("Horizontal");
-        rigibody.velocity = new Vector3(horizontal * 3, rigibody.velocity.y, 0);
+ 
+        distance = Vector3.Distance(transform.position, character.position);
+        if (distance < 5 && distance > 0.3f)
+        {
+            walk = true;
+            attack = false;
+            Debug.Log("yürüyor");
+        }
+        if (distance < 0.3f)
+        {
+            walk = false;
+            attack = true;
+            Debug.Log("ateş ediyor");
+        }
+        if (distance > 5)
+        {
+            walk = false;
+            attack = false;
+            Debug.Log("bekliyor");
+        }
+        if (walk)
+        {
+            speed = 1;
+            transform.position = Vector3.MoveTowards(transform.position, character.position, speed * Time.deltaTime);
+        }
+        if (attack)
+        {
+            Attack();
+
+        }
+        if (walk == false && attack == false)
+        {
+            animator.SetBool(isWalking, false);
+            animator.SetBool(isJumping, false);
+        }
+        if (health <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
     public void Animation()
     {
         if (oneTimeJump)
         {
-            if (horizontal == 0)
-            {
-                animator.SetBool(isWalking, false);
-                animator.SetBool(isJumping, false);
-            }
-            else if (horizontal > 0)
+            if (character.transform.position.x > transform.localPosition.x)
             {
 
-                if (character.transform.localScale.x < 0)
+                if (transform.localScale.x < 0)
                 {
-                    character.transform.localScale = new Vector3(-1 * character.transform.localScale.x, character.transform.localScale.y, 1);
+                    transform.localScale = new Vector3(-1 * transform.localScale.x, transform.localScale.y, 1);
                 }
                 else
                 {
-                    character.transform.localScale = new Vector3(character.transform.localScale.x, character.transform.localScale.y, 1);
+                    transform.localScale = new Vector3(transform.localScale.x, transform.localScale.y, 1);
                 }
                 animator.SetBool(isWalking, true);
             }
-            else if (horizontal < 0)
+            else if (character.transform.position.x < transform.localPosition.x)
             {
 
-                if (character.transform.localScale.x < 0)
+                if (transform.localScale.x < 0)
                 {
-                    character.transform.localScale = new Vector3(character.transform.localScale.x, character.transform.localScale.y, 1);
+                    transform.localScale = new Vector3(transform.localScale.x, transform.localScale.y, 1);
                 }
                 else
                 {
-                    character.transform.localScale = new Vector3(-1 * character.transform.localScale.x, character.transform.localScale.y, 1);
+                    transform.localScale = new Vector3(-1 * transform.localScale.x, transform.localScale.y, 1);
                 }
                 animator.SetBool(isWalking, true);
             }
-        }
-        else
-        {
-            if (rigibody.velocity.y > 0)
+            if (character.transform.position.y > transform.localPosition.y)
             {
+                rigibody.AddForce(new Vector2(0, 300));
+                oneTimeJump = false;
                 animator.SetBool(isJumping, true);
             }
             else
@@ -101,10 +112,15 @@ public class Enemy : MonoBehaviour
                 animator.SetBool(isJumping, false);
             }
         }
+       
+    }
+    public void Attack()
+    {
+        animator.SetTrigger(isAttacking);
     }
     public void OnCollisionEnter2D(Collision2D collision)
     {
         animator.SetBool(isJumping, false);
         oneTimeJump = true;
     }
-}
+    }
