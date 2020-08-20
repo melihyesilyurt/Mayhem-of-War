@@ -67,6 +67,7 @@
     <Compile Include="Assets\Scripts\Character.cs" />
     <Compile Include="Assets\Scripts\CharacterStatus.cs" />
     <Compile Include="Assets\Scripts\Enemy.cs" />
+    <Compile Include="Assets\Scripts\EnemyStatus.cs" />
     <Compile Include="Assets\Scripts\characterfollower.cs" />
     <None Include="Assets\Assets\Pixel2DCastleTileset\about.txt" />
     <Reference Include="UnityEngine">

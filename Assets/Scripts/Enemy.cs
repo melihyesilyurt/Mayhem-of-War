@@ -17,11 +17,13 @@ public class Enemy : MonoBehaviour
     private string isWalking = "Iswalking";
     private string isJumping = "Isjumping";
     private bool oneTimeJump = true;
+    private EnemyStatus status;
     void Start()
     {
         health = 16;
         animator = GetComponent<Animator>();
         rigibody = GetComponent<Rigidbody2D>();
+        status = GetComponent<EnemyStatus>();
     }
 
     void FixedUpdate()
@@ -37,19 +39,20 @@ public class Enemy : MonoBehaviour
         {
             walk = true;
             attack = false;
-            Debug.Log("yürüyor");
+            //Debug.Log("yürüyor");
         }
         if (distance < 0.3f)
         {
+
             walk = false;
             attack = true;
-            Debug.Log("ateş ediyor");
+            //Debug.Log("ateş ediyor");
         }
         if (distance > 5)
         {
             walk = false;
             attack = false;
-            Debug.Log("bekliyor");
+            //Debug.Log("bekliyor");
         }
         if (walk)
         {
@@ -59,7 +62,6 @@ public class Enemy : MonoBehaviour
         if (attack)
         {
             Attack();
-
         }
         if (walk == false && attack == false)
         {
@@ -116,7 +118,16 @@ public class Enemy : MonoBehaviour
     }
     public void Attack()
     {
-        animator.SetTrigger(isAttacking);
+        if (status.stamina > 30)
+        {
+            animator.SetTrigger(isAttacking);
+            status.stamina = status.stamina -30;
+        }
+        else
+        {
+            animator.SetTrigger(isWaiting);
+            
+        }
     }
     public void OnCollisionEnter2D(Collision2D collision)
     {

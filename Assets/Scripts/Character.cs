@@ -7,6 +7,10 @@ public class Character : MonoBehaviour
 
     public GameObject character;
     public Rigidbody2D rigibody;
+    private CharacterStatus status;
+    public Transform attackPoint;
+    public float attackRange =0.5f;
+    public LayerMask enemyLayers;
     //[SerializeField] private CapsuleCollider2D footCollider;
     //private CapsuleCollider2D footCollider;
     public float horizontal = 0;
@@ -16,11 +20,13 @@ public class Character : MonoBehaviour
     private string isAttacking = "Isattacking";
     private string isWalking = "Iswalking";
     private string isJumping = "Isjumping";
+    //CharacterStatus status = CharacterStatus CharacterStatus();
 
     void Start()
     {
         rigibody = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        status = GetComponent<CharacterStatus>();
     }
     void Update()
     {
@@ -49,7 +55,25 @@ public class Character : MonoBehaviour
     }
     public void Attack()
     {
-        animator.SetTrigger(isAttacking);
+        if(status.stamina>20)
+        {
+            animator.SetTrigger(isAttacking);
+            status.stamina = status.stamina - 20;
+           Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
+            foreach(Collider2D enemy in hitEnemies)
+            {
+                Debug.Log("We hit" + enemy.name);
+            }
+
+        }
+    }
+    private void OnDrawGizmosSelected()
+    {
+        if(attackPoint == null)
+        {
+            return;
+        }
+        Gizmos.DrawWireSphere(attackPoint.position,attackRange);
     }
     public void CharacterMove()
     {

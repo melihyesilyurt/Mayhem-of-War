@@ -44,6 +44,19 @@ PolygonCollider2D:
       - {x: -0.46539396, y: -0.32560384}
       - {x: -0.44383967, y: -0.30902085}
       - {x: -0.28067085, y: -0.314202}
+--- !u!114 &1666380593
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1860295222970773083}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d135109e1880544d912c753880c6906, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  character: {fileID: 0}
 --- !u!1001 &4020570187558419769
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -89,12 +102,12 @@ PrefabInstance:
     - target: {fileID: 3322240279824995182, guid: 739321165f070994c89a63c0afac204f,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 3.51
       objectReference: {fileID: 0}
     - target: {fileID: 3322240279824995182, guid: 739321165f070994c89a63c0afac204f,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -1.293
       objectReference: {fileID: 0}
     - target: {fileID: 3322240279824995182, guid: 739321165f070994c89a63c0afac204f,
         type: 3}
@@ -162,7 +175,13 @@ PrefabInstance:
       propertyPath: m_WasSpriteAssigned
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 3322240279824995183, guid: 739321165f070994c89a63c0afac204f,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 3810044821440341454, guid: 739321165f070994c89a63c0afac204f, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 739321165f070994c89a63c0afac204f, type: 3}
 --- !u!1 &1860295222970773083 stripped
 GameObject:
