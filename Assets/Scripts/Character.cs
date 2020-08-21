@@ -7,10 +7,7 @@ public class Character : MonoBehaviour
 
     public GameObject character;
     public Rigidbody2D rigibody;
-    private CharacterStatus status;
-    public Transform attackPoint;
-    public float attackRange =0.5f;
-    public LayerMask enemyLayers;
+    
     //[SerializeField] private CapsuleCollider2D footCollider;
     //private CapsuleCollider2D footCollider;
     public float horizontal = 0;
@@ -26,7 +23,7 @@ public class Character : MonoBehaviour
     {
         rigibody = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
-        status = GetComponent<CharacterStatus>();
+        
     }
     void Update()
     {
@@ -39,42 +36,15 @@ public class Character : MonoBehaviour
             }
 
         }
-        if (Input.GetKeyDown(KeyCode.Mouse0))
-        {
-            Attack();
-        }
-        if (Input.GetKeyUp(KeyCode.Mouse0))
-        {
-            animator.SetTrigger(isWaiting);
-        }
+       
     }
     void FixedUpdate()
     {
         CharacterMove();
         Animation();
     }
-    public void Attack()
-    {
-        if(status.stamina>20)
-        {
-            animator.SetTrigger(isAttacking);
-            status.stamina = status.stamina - 20;
-           Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
-            foreach(Collider2D enemy in hitEnemies)
-            {
-                Debug.Log("We hit" + enemy.name);
-            }
-
-        }
-    }
-    private void OnDrawGizmosSelected()
-    {
-        if(attackPoint == null)
-        {
-            return;
-        }
-        Gizmos.DrawWireSphere(attackPoint.position,attackRange);
-    }
+    
+    
     public void CharacterMove()
     {
         horizontal = Input.GetAxisRaw("Horizontal");

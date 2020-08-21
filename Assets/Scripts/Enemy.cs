@@ -10,20 +10,18 @@ public class Enemy : MonoBehaviour
     private bool walk, attack;
    [SerializeField] private Transform character;
     private Rigidbody2D rigibody;
-    private int health;
     private Animator animator;
     private string isWaiting = "Iswaiting";
     private string isAttacking = "Isattacking";
     private string isWalking = "Iswalking";
     private string isJumping = "Isjumping";
     private bool oneTimeJump = true;
-    private EnemyStatus status;
+    private EnemyCombat enemyCombat;
     void Start()
     {
-        health = 16;
         animator = GetComponent<Animator>();
         rigibody = GetComponent<Rigidbody2D>();
-        status = GetComponent<EnemyStatus>();
+        enemyCombat = GetComponent<EnemyCombat>();
     }
 
     void FixedUpdate()
@@ -61,16 +59,12 @@ public class Enemy : MonoBehaviour
         }
         if (attack)
         {
-            Attack();
+            enemyCombat.Attack();
         }
         if (walk == false && attack == false)
         {
             animator.SetBool(isWalking, false);
             animator.SetBool(isJumping, false);
-        }
-        if (health <= 0)
-        {
-            Destroy(gameObject);
         }
     }
     public void Animation()
@@ -116,19 +110,7 @@ public class Enemy : MonoBehaviour
         }
        
     }
-    public void Attack()
-    {
-        if (status.stamina > 30)
-        {
-            animator.SetTrigger(isAttacking);
-            status.stamina = status.stamina -30;
-        }
-        else
-        {
-            animator.SetTrigger(isWaiting);
-            
-        }
-    }
+    
     public void OnCollisionEnter2D(Collision2D collision)
     {
         animator.SetBool(isJumping, false);

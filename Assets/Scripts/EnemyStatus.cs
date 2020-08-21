@@ -6,22 +6,29 @@ public class EnemyStatus : MonoBehaviour
 {
     public float health;
     public float stamina;
-    void Start()
+    [SerializeField] private int healthRegeneration;
+    [SerializeField] private int staminaRegeneration;
+    [SerializeField]private GameObject Gold;
+    private Transform position;
+    private void Start()
     {
-        health = 100;
-        stamina = 100;
+        position = GetComponent<Transform>();
     }
-
     void Update()
     {
         if (health < 100)
         {
-            health += (1 * Time.deltaTime);
+            health += (healthRegeneration * Time.deltaTime);
         }
         if (stamina < 100)
         {
-            stamina += (10 * Time.deltaTime);
+            stamina += (staminaRegeneration * Time.deltaTime);
         }
-
+        if (health <= 0)
+        {
+            Gold.transform.localPosition = position.position;
+            Instantiate(Gold);
+            Destroy(gameObject);
+        }
     }
 }

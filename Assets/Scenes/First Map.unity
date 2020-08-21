@@ -1795,12 +1795,12 @@ PrefabInstance:
     - target: {fileID: 1860295222970773079, guid: 1caf68c7b1dd3a943ac6be05bb6dc33c,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.51
+      value: 0.129
       objectReference: {fileID: 0}
     - target: {fileID: 1860295222970773079, guid: 1caf68c7b1dd3a943ac6be05bb6dc33c,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.293
+      value: 0.375
       objectReference: {fileID: 0}
     - target: {fileID: 1860295222970773079, guid: 1caf68c7b1dd3a943ac6be05bb6dc33c,
         type: 3}
@@ -1856,6 +1856,37 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 2416193679604855816, guid: 1caf68c7b1dd3a943ac6be05bb6dc33c,
+        type: 3}
+      propertyPath: Gold
+      value: 
+      objectReference: {fileID: 728824453130678295, guid: 8dbc37d20bcd4714db3d2645fd4cee8d,
+        type: 3}
+    - target: {fileID: 2416193679604855816, guid: 1caf68c7b1dd3a943ac6be05bb6dc33c,
+        type: 3}
+      propertyPath: health
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4020570189113527816, guid: 1caf68c7b1dd3a943ac6be05bb6dc33c,
+        type: 3}
+      propertyPath: character
+      value: 
+      objectReference: {fileID: 1827427795}
+    - target: {fileID: 8670580950047821986, guid: 1caf68c7b1dd3a943ac6be05bb6dc33c,
+        type: 3}
+      propertyPath: enemyLayers.m_Bits
+      value: 1024
+      objectReference: {fileID: 0}
+    - target: {fileID: 8670580950047821986, guid: 1caf68c7b1dd3a943ac6be05bb6dc33c,
+        type: 3}
+      propertyPath: character
+      value: 
+      objectReference: {fileID: 1827427794}
+    - target: {fileID: 8670580950047821986, guid: 1caf68c7b1dd3a943ac6be05bb6dc33c,
+        type: 3}
+      propertyPath: damage
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1caf68c7b1dd3a943ac6be05bb6dc33c, type: 3}
@@ -2041,6 +2072,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1879756279643698894, guid: 040323e9a5e93c34baa71fe5d3839ba2,
+        type: 3}
+      propertyPath: damage
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1879756279643698894, guid: 040323e9a5e93c34baa71fe5d3839ba2,
+        type: 3}
+      propertyPath: enemy
+      value: 
+      objectReference: {fileID: 336208619}
     - target: {fileID: 6415877108141980707, guid: 040323e9a5e93c34baa71fe5d3839ba2,
         type: 3}
       propertyPath: attackPoint
@@ -2694,6 +2735,12 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &336208619 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1860295222970773083, guid: 1caf68c7b1dd3a943ac6be05bb6dc33c,
+    type: 3}
+  m_PrefabInstance: {fileID: 254527703}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &353330668
 GameObject:
   m_ObjectHideFlags: 0
@@ -11709,6 +11756,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 100
   stamina: 100
+  healthRegeneration: 1
+  staminaRegeneration: 10
+  goldAmount: 0
 --- !u!1 &1836133879
 GameObject:
   m_ObjectHideFlags: 0
