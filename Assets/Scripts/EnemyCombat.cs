@@ -8,6 +8,7 @@ public class EnemyCombat : MonoBehaviour
     private string isWaiting = "Iswaiting";
     private Rigidbody2D rigibody;
     private EnemyStatus status;
+    [SerializeField] private int possibility;
     public Transform attackPoint;
     public float attackRange;
     [SerializeField]private int damage;
@@ -23,26 +24,26 @@ public class EnemyCombat : MonoBehaviour
         characterStatus = character.GetComponent<CharacterStatus>();
     }
     public void Attack()
-    {
-        if (status.stamina > 20)
-        {
-            animator.SetTrigger(isAttacking);
-            status.stamina = status.stamina - 20;
-            Collider2D[] hitCharacter = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
-            int random = UnityEngine.Random.Range(0, 10);
-            if (random < 3)
+    { 
+            if (status.stamina > 20)
             {
-                Debug.Log("Miss " + random);
-            }
-            else
-            {
-                foreach (Collider2D character in hitCharacter)
+                animator.SetTrigger(isAttacking);
+                status.stamina = status.stamina - 20;
+                Collider2D[] hitCharacter = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
+                int random = UnityEngine.Random.Range(0, 100);
+                if (random < possibility)
                 {
-                    Debug.Log("He hit " + character.name);
-                    characterStatus.health -= damage;
+                    Debug.Log("Miss " + random);
+                }
+                else
+                {
+                    foreach (Collider2D character in hitCharacter)
+                    {
+                        Debug.Log("He hit " + character.name);
+                        characterStatus.health -= damage;
+                    }
                 }
             }
-        }
     }
     private void OnDrawGizmosSelected()
     {

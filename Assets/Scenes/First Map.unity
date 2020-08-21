@@ -1886,7 +1886,12 @@ PrefabInstance:
     - target: {fileID: 8670580950047821986, guid: 1caf68c7b1dd3a943ac6be05bb6dc33c,
         type: 3}
       propertyPath: damage
-      value: 1
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 8670580950047821986, guid: 1caf68c7b1dd3a943ac6be05bb6dc33c,
+        type: 3}
+      propertyPath: possibility
+      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1caf68c7b1dd3a943ac6be05bb6dc33c, type: 3}
@@ -2082,6 +2087,11 @@ PrefabInstance:
       propertyPath: enemy
       value: 
       objectReference: {fileID: 336208619}
+    - target: {fileID: 1879756279643698894, guid: 040323e9a5e93c34baa71fe5d3839ba2,
+        type: 3}
+      propertyPath: possibility
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 6415877108141980707, guid: 040323e9a5e93c34baa71fe5d3839ba2,
         type: 3}
       propertyPath: attackPoint
@@ -11742,23 +11752,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 283007349}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1827427796
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1827427794}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4cc29ea213e55ac4d8d8e9b3358821ef, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 100
-  stamina: 100
-  healthRegeneration: 1
-  staminaRegeneration: 10
-  goldAmount: 0
 --- !u!1 &1836133879
 GameObject:
   m_ObjectHideFlags: 0

@@ -19,10 +19,6 @@ public class CharacterStatus : MonoBehaviour
         {
             stamina += (staminaRegeneration * Time.deltaTime);
         }
-        if (health <= 0)
-        {
-            Destroy(gameObject);
-        }
     }
     public void OnCollisionEnter2D(Collision2D collision)
     {

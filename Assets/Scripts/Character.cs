@@ -17,31 +17,59 @@ public class Character : MonoBehaviour
     private string isAttacking = "Isattacking";
     private string isWalking = "Iswalking";
     private string isJumping = "Isjumping";
+    private string isDead = "IsDead";
+    private CharacterStatus characterStatus;
+    private float deadTime;
+    bool oneTimeDead = true;
     //CharacterStatus status = CharacterStatus CharacterStatus();
 
     void Start()
     {
         rigibody = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
-        
+        characterStatus = GetComponent<CharacterStatus>();
     }
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.UpArrow))
-        {
-            if (oneTimeJump)
+        if (characterStatus.health>0) {
+            if (Input.GetKeyDown(KeyCode.UpArrow))
             {
-                rigibody.AddForce(new Vector2(0, 300));
-                oneTimeJump = false;
-            }
+                if (oneTimeJump)
+                {
+                    rigibody.AddForce(new Vector2(0, 300));
+                    oneTimeJump = false;
+                }
 
+            }
         }
-       
     }
     void FixedUpdate()
     {
-        CharacterMove();
-        Animation();
+        if (characterStatus.health > 0)
+        {
+            CharacterMove();
+            Animation();
+        }
+        else
+        {
+            animator.SetBool(isWalking, false);
+            animator.SetBool(isJumping, false);
+
+            if (oneTimeDead)
+            {
+                animator.SetTrigger(isDead);
+                oneTimeDead = false;
+            }
+            //rigibody.gravityScale = 0;
+            rigibody.constraints = RigidbodyConstraints2D.FreezePosition;
+            GetComponent<CapsuleCollider2D>().isTrigger = true;
+            GetComponent<PolygonCollider2D>().isTrigger = true;
+            deadTime += (1 * Time.deltaTime);
+            if (1.75f < deadTime)
+            {
+                Destroy(gameObject);
+            }
+        }
     }
     
     

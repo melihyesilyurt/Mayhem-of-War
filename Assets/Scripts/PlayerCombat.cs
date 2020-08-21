@@ -15,6 +15,8 @@ public class PlayerCombat : MonoBehaviour
     [SerializeField] private int damage;
     private EnemyStatus enemyStatus;
     [SerializeField] private GameObject enemy;
+    [SerializeField] private int possibility;
+    [SerializeField] private int spendedStamina;
     void Start()
     {
         rigibody = GetComponent<Rigidbody2D>();
@@ -35,13 +37,13 @@ public class PlayerCombat : MonoBehaviour
     }
     public void Attack()
     {
-        if (status.stamina > 20)
+        if (status.stamina > spendedStamina)
         {
             animator.SetTrigger(isAttacking);
-            status.stamina = status.stamina - 20;
+            status.stamina = status.stamina - spendedStamina;
             Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
-            int random = UnityEngine.Random.Range(0, 10);
-            if (random<3)
+            int random = UnityEngine.Random.Range(0, 100);
+            if (random<possibility)
             {
                 Debug.Log("Miss "+random);
             }

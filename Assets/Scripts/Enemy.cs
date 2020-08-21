@@ -15,59 +15,85 @@ public class Enemy : MonoBehaviour
     private string isAttacking = "Isattacking";
     private string isWalking = "Iswalking";
     private string isJumping = "Isjumping";
+    private string isDead = "IsDead";
     private bool oneTimeJump = true;
     private EnemyCombat enemyCombat;
+    private EnemyStatus enemystatus;
+    bool oneTimeDead = true;
+    private float deadTime;
+   // private Collider2D collider;
     void Start()
     {
         animator = GetComponent<Animator>();
         rigibody = GetComponent<Rigidbody2D>();
         enemyCombat = GetComponent<EnemyCombat>();
+        enemystatus = GetComponent<EnemyStatus>();
+       // collider = GetComponent<>();
     }
-
-    void FixedUpdate()
-    {   
-        Animation();
-    }
-    
     void Update()
     {
- 
         distance = Vector3.Distance(transform.position, character.position);
-        if (distance < 5 && distance > 0.3f)
-        {
-            walk = true;
-            attack = false;
-            //Debug.Log("yürüyor");
-        }
-        if (distance < 0.3f)
-        {
+            if (distance < 5 && distance > 0.3f)
+            {
+                walk = true;
+                attack = false;
+                //Debug.Log("yürüyor");
+            }
+            if (distance < 0.3f)
+            {
 
-            walk = false;
-            attack = true;
-            //Debug.Log("ateş ediyor");
+                walk = false;
+                attack = true;
+                //Debug.Log("ateş ediyor");
+            }
+            if (distance > 5)
+            {
+                walk = false;
+                attack = false;
+                //Debug.Log("bekliyor");
+            }
+        if (enemystatus.health > 0)
+        {
+            if (walk)
+            {
+                Movement();
+                speed = 1;
+                transform.position = Vector3.MoveTowards(transform.position, character.position, speed * Time.deltaTime);
+            }
+            if (attack)
+            {
+                enemyCombat.Attack();
+            }
+            if (walk == false && attack == false)
+            {
+                animator.SetBool(isWalking, false);
+                animator.SetBool(isJumping, false);
+            }
         }
-        if (distance > 5)
+        else
         {
             walk = false;
             attack = false;
-            //Debug.Log("bekliyor");
-        }
-        if (walk)
-        {
-            speed = 1;
-            transform.position = Vector3.MoveTowards(transform.position, character.position, speed * Time.deltaTime);
-        }
-        if (attack)
-        {
-            enemyCombat.Attack();
-        }
-        if (walk == false && attack == false)
-        {
             animator.SetBool(isWalking, false);
             animator.SetBool(isJumping, false);
+           
+            if(oneTimeDead)
+            {
+               animator.SetTrigger(isDead);
+                oneTimeDead = false;
+            }
+            //rigibody.gravityScale = 0;
+          rigibody.constraints = RigidbodyConstraints2D.FreezePosition;
+            GetComponent<CapsuleCollider2D>().isTrigger= true;
+           GetComponent<PolygonCollider2D>().isTrigger = true;
+            deadTime += (1 * Time.deltaTime);
+            if (1.75f<deadTime)
+            {
+                Destroy(gameObject);
+            }
         }
     }
-    public void Animation()
+    public void Movement()
     {
         if (oneTimeJump)
         {
@@ -107,10 +133,8 @@ public class Enemy : MonoBehaviour
             {
                 animator.SetBool(isJumping, false);
             }
-        }
-       
+        }  
     }
-    
     public void OnCollisionEnter2D(Collision2D collision)
     {
         animator.SetBool(isJumping, false);

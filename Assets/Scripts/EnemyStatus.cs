@@ -9,10 +9,15 @@ public class EnemyStatus : MonoBehaviour
     [SerializeField] private int healthRegeneration;
     [SerializeField] private int staminaRegeneration;
     [SerializeField]private GameObject Gold;
+    private Animator animator;
     private Transform position;
+    
+    private int spawnGold=0;
+
     private void Start()
     {
         position = GetComponent<Transform>();
+        animator = GetComponent<Animator>();
     }
     void Update()
     {
@@ -26,9 +31,12 @@ public class EnemyStatus : MonoBehaviour
         }
         if (health <= 0)
         {
+            spawnGold++;
+        }
+        if(spawnGold==1)
+        {
             Gold.transform.localPosition = position.position;
             Instantiate(Gold);
-            Destroy(gameObject);
         }
     }
 }
