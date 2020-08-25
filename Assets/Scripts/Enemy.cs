@@ -16,18 +16,22 @@ public class Enemy : MonoBehaviour
     private string isWalking = "Iswalking";
     private string isJumping = "Isjumping";
     private string isDead = "IsDead";
+    private string isDamaged = "IsDamaged";
     private bool oneTimeJump = true;
     private EnemyCombat enemyCombat;
     private EnemyStatus enemystatus;
     bool oneTimeDead = true;
     private float deadTime;
-   // private Collider2D collider;
+    [SerializeField] private float attackSpeed;
+    private float timeAttack;
+    // private Collider2D collider;
     void Start()
     {
         animator = GetComponent<Animator>();
         rigibody = GetComponent<Rigidbody2D>();
         enemyCombat = GetComponent<EnemyCombat>();
         enemystatus = GetComponent<EnemyStatus>();
+        //timeAttack = attackSpeed;
        // collider = GetComponent<>();
     }
     void Update()
@@ -62,7 +66,15 @@ public class Enemy : MonoBehaviour
             }
             if (attack)
             {
-                enemyCombat.Attack();
+                timeAttack += (1 * Time.deltaTime);
+                if (attackSpeed < timeAttack)
+                {
+                    enemyCombat.Attack();
+                    timeAttack = 0;
+                }
+                animator.SetBool(isWalking, false);
+                animator.SetTrigger(isWaiting);
+
             }
             if (walk == false && attack == false)
             {
@@ -76,13 +88,13 @@ public class Enemy : MonoBehaviour
             attack = false;
             animator.SetBool(isWalking, false);
             animator.SetBool(isJumping, false);
+            //animator.SetTrigger(isWaiting);
            
             if(oneTimeDead)
             {
                animator.SetTrigger(isDead);
                 oneTimeDead = false;
             }
-            //rigibody.gravityScale = 0;
           rigibody.constraints = RigidbodyConstraints2D.FreezePosition;
             GetComponent<CapsuleCollider2D>().isTrigger= true;
            GetComponent<PolygonCollider2D>().isTrigger = true;

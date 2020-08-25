@@ -6,7 +6,6 @@ public class EnemyCombat : MonoBehaviour
 {
     private string isAttacking = "Isattacking";
     private string isWaiting = "Iswaiting";
-    private Rigidbody2D rigibody;
     private EnemyStatus status;
     [SerializeField] private int possibility;
     public Transform attackPoint;
@@ -15,20 +14,23 @@ public class EnemyCombat : MonoBehaviour
     public LayerMask enemyLayers;
     private CharacterStatus characterStatus;
     [SerializeField] private GameObject character;
+    [SerializeField] private int spendedStamina;
+    [SerializeField] private int CriticalPossiblity;
+
     private Animator animator;
     void Start()
     {
-        rigibody = GetComponent<Rigidbody2D>();
+      
         animator = GetComponent<Animator>();
         status = GetComponent<EnemyStatus>();
         characterStatus = character.GetComponent<CharacterStatus>();
     }
     public void Attack()
     { 
-            if (status.stamina > 20)
+            if (status.stamina > spendedStamina)
             {
                 animator.SetTrigger(isAttacking);
-                status.stamina = status.stamina - 20;
+                status.stamina = status.stamina - spendedStamina;
                 Collider2D[] hitCharacter = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
                 int random = UnityEngine.Random.Range(0, 100);
                 if (random < possibility)
@@ -39,11 +41,20 @@ public class EnemyCombat : MonoBehaviour
                 {
                     foreach (Collider2D character in hitCharacter)
                     {
+                    random = UnityEngine.Random.Range(0, 100);
+                    if (random < CriticalPossiblity)
+                    {
+                        Debug.Log("critical " + random);
+                        characterStatus.health -= 2 * damage;
+                    }
+                    else
+                    {
                         Debug.Log("He hit " + character.name);
                         characterStatus.health -= damage;
                     }
                 }
             }
+        }
     }
     private void OnDrawGizmosSelected()
     {

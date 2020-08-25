@@ -1203,6 +1203,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   character: {fileID: 0}
+  attackSpeed: 0
 --- !u!1 &154550994
 GameObject:
   m_ObjectHideFlags: 0
@@ -1792,6 +1793,17 @@ PrefabInstance:
       propertyPath: character
       value: 
       objectReference: {fileID: 1827427795}
+    - target: {fileID: 1860295222970773078, guid: 1caf68c7b1dd3a943ac6be05bb6dc33c,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: ae44d6ca9dc728943a492226b377d3f4,
+        type: 3}
+    - target: {fileID: 1860295222970773078, guid: 1caf68c7b1dd3a943ac6be05bb6dc33c,
+        type: 3}
+      propertyPath: m_FlipX
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1860295222970773079, guid: 1caf68c7b1dd3a943ac6be05bb6dc33c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1866,13 +1878,18 @@ PrefabInstance:
     - target: {fileID: 2416193679604855816, guid: 1caf68c7b1dd3a943ac6be05bb6dc33c,
         type: 3}
       propertyPath: health
-      value: 10
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 4020570189113527816, guid: 1caf68c7b1dd3a943ac6be05bb6dc33c,
         type: 3}
       propertyPath: character
       value: 
       objectReference: {fileID: 1827427795}
+    - target: {fileID: 4020570189113527816, guid: 1caf68c7b1dd3a943ac6be05bb6dc33c,
+        type: 3}
+      propertyPath: attackSpeed
+      value: 1.2
+      objectReference: {fileID: 0}
     - target: {fileID: 8670580950047821986, guid: 1caf68c7b1dd3a943ac6be05bb6dc33c,
         type: 3}
       propertyPath: enemyLayers.m_Bits
@@ -1892,6 +1909,26 @@ PrefabInstance:
         type: 3}
       propertyPath: possibility
       value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 8670580950047821986, guid: 1caf68c7b1dd3a943ac6be05bb6dc33c,
+        type: 3}
+      propertyPath: CriticalPossiblity
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8670580950047821986, guid: 1caf68c7b1dd3a943ac6be05bb6dc33c,
+        type: 3}
+      propertyPath: spendedStamina
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 8670580950047821986, guid: 1caf68c7b1dd3a943ac6be05bb6dc33c,
+        type: 3}
+      propertyPath: attackSpeed
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 8670580950047821986, guid: 1caf68c7b1dd3a943ac6be05bb6dc33c,
+        type: 3}
+      propertyPath: knockback
+      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1caf68c7b1dd3a943ac6be05bb6dc33c, type: 3}
@@ -2077,6 +2114,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 715124356329640815, guid: 040323e9a5e93c34baa71fe5d3839ba2,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 4723107735738678597, guid: 0bd97e23f8b532a4f8969605a3b00a4e,
+        type: 3}
+    - target: {fileID: 715124356329640815, guid: 040323e9a5e93c34baa71fe5d3839ba2,
+        type: 3}
+      propertyPath: m_FlipY
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 715124356329640815, guid: 040323e9a5e93c34baa71fe5d3839ba2,
+        type: 3}
+      propertyPath: m_FlipX
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1879756279643698894, guid: 040323e9a5e93c34baa71fe5d3839ba2,
         type: 3}
       propertyPath: damage
@@ -2091,6 +2144,41 @@ PrefabInstance:
         type: 3}
       propertyPath: possibility
       value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 1879756279643698894, guid: 040323e9a5e93c34baa71fe5d3839ba2,
+        type: 3}
+      propertyPath: knockback
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 1879756279643698894, guid: 040323e9a5e93c34baa71fe5d3839ba2,
+        type: 3}
+      propertyPath: missPossiblity
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 1879756279643698894, guid: 040323e9a5e93c34baa71fe5d3839ba2,
+        type: 3}
+      propertyPath: missCritical
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1879756279643698894, guid: 040323e9a5e93c34baa71fe5d3839ba2,
+        type: 3}
+      propertyPath: attackSpeed
+      value: 1.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 1879756279643698894, guid: 040323e9a5e93c34baa71fe5d3839ba2,
+        type: 3}
+      propertyPath: CriticalPossiblity
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2989721487477887747, guid: 040323e9a5e93c34baa71fe5d3839ba2,
+        type: 3}
+      propertyPath: health
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 2989721487477887747, guid: 040323e9a5e93c34baa71fe5d3839ba2,
+        type: 3}
+      propertyPath: stamina
+      value: 10000
       objectReference: {fileID: 0}
     - target: {fileID: 6415877108141980707, guid: 040323e9a5e93c34baa71fe5d3839ba2,
         type: 3}
@@ -2110,7 +2198,7 @@ PrefabInstance:
     - target: {fileID: 9221479400596371524, guid: 040323e9a5e93c34baa71fe5d3839ba2,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.234
+      value: 0.618
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 040323e9a5e93c34baa71fe5d3839ba2, type: 3}
