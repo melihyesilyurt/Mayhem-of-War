@@ -166,7 +166,7 @@ Animator:
   m_GameObject: {fileID: 3322240279824995170}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: a29920a865d20fe4fa65342412825548, type: 2}
+  m_Controller: {fileID: 0}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -191,6 +191,7 @@ MonoBehaviour:
   stamina: 100
   healthRegeneration: 1
   staminaRegeneration: 10
+  Gold: {fileID: 0}
 --- !u!114 &5737577300643245467
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -203,11 +204,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8735d5a33a049545a6539322214a118, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  possibility: 0
   attackPoint: {fileID: 1710755439541085811}
   attackRange: 0.26
+  damage: 0
   enemyLayers:
     serializedVersion: 2
     m_Bits: 1024
+  spendedStamina: 0
+  CriticalPossiblity: 0
+  attackSpeed: 0
 --- !u!60 &2998418470301561860
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -264,4 +270,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d135109e1880544d912c753880c6906, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  character: {fileID: 0}
+  attackSpeed: 0

@@ -10,18 +10,53 @@ PrefabInstance:
     - target: {fileID: 2998418470301561860, guid: 739321165f070994c89a63c0afac204f,
         type: 3}
       propertyPath: m_SpriteTilingProperty.pivot.x
-      value: 0.4832631
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 2998418470301561860, guid: 739321165f070994c89a63c0afac204f,
         type: 3}
       propertyPath: m_SpriteTilingProperty.pivot.y
-      value: 0.01067711
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2998418470301561860, guid: 739321165f070994c89a63c0afac204f,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 1.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 3322240279824995168, guid: 739321165f070994c89a63c0afac204f,
+        type: 3}
+      propertyPath: m_Direction
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3322240279824995168, guid: 739321165f070994c89a63c0afac204f,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: 0.047114376
+      objectReference: {fileID: 0}
+    - target: {fileID: 3322240279824995168, guid: 739321165f070994c89a63c0afac204f,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: -0.198771
+      objectReference: {fileID: 0}
+    - target: {fileID: 3322240279824995168, guid: 739321165f070994c89a63c0afac204f,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 0.2648495
+      objectReference: {fileID: 0}
+    - target: {fileID: 3322240279824995168, guid: 739321165f070994c89a63c0afac204f,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 0.5784813
       objectReference: {fileID: 0}
     - target: {fileID: 3322240279824995170, guid: 739321165f070994c89a63c0afac204f,
         type: 3}
       propertyPath: m_Name
       value: Archer
       objectReference: {fileID: 0}
+    - target: {fileID: 3322240279824995181, guid: 739321165f070994c89a63c0afac204f,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 5f56013f2d9acc34ea82144a3406f80e, type: 2}
     - target: {fileID: 3322240279824995182, guid: 739321165f070994c89a63c0afac204f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -98,5 +133,6 @@ PrefabInstance:
       propertyPath: m_WasSpriteAssigned
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2998418470301561860, guid: 739321165f070994c89a63c0afac204f, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 739321165f070994c89a63c0afac204f, type: 3}
