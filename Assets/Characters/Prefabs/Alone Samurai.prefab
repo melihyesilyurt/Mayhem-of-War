@@ -7,6 +7,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -8191112726467940158, guid: 24ae72b7a4d903a4da4cd905e3a1e127,
+        type: 3}
+      propertyPath: footCollider
+      value: 
+      objectReference: {fileID: 715124356329640810}
     - target: {fileID: 1360571902762198693, guid: 24ae72b7a4d903a4da4cd905e3a1e127,
         type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.size
@@ -275,17 +280,17 @@ PrefabInstance:
     - target: {fileID: 2928415953631736997, guid: 24ae72b7a4d903a4da4cd905e3a1e127,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.569
+      value: 0.563
       objectReference: {fileID: 0}
     - target: {fileID: 2928415953631736997, guid: 24ae72b7a4d903a4da4cd905e3a1e127,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.022
+      value: 0.033
       objectReference: {fileID: 0}
     - target: {fileID: 5570011572515273263, guid: 24ae72b7a4d903a4da4cd905e3a1e127,
         type: 3}
       propertyPath: attackRange
-      value: 0.26
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 5570011572515273263, guid: 24ae72b7a4d903a4da4cd905e3a1e127,
         type: 3}
@@ -415,3 +420,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 24ae72b7a4d903a4da4cd905e3a1e127, type: 3}
+--- !u!70 &715124356329640810 stripped
+CapsuleCollider2D:
+  m_CorrespondingSourceObject: {fileID: 6824701329243152267, guid: 24ae72b7a4d903a4da4cd905e3a1e127,
+    type: 3}
+  m_PrefabInstance: {fileID: 6294506582511095009}
+  m_PrefabAsset: {fileID: 0}

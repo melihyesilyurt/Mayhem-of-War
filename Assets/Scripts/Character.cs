@@ -4,30 +4,24 @@ using UnityEngine;
 
 public class Character : MonoBehaviour
 {
-
     public GameObject character;
-    public Rigidbody2D rigibody;
-    
-    //[SerializeField] private CapsuleCollider2D footCollider;
-    //private CapsuleCollider2D footCollider;
+    private Rigidbody2D rigibody;
+    private CapsuleCollider2D footCollider;
     public float horizontal = 0;
     public bool oneTimeJump = true;
-    public Animator animator;
-    private string isWaiting = "Iswaiting";
-    private string isAttacking = "Isattacking";
+    private Animator animator;
     private string isWalking = "Iswalking";
     private string isJumping = "Isjumping";
     private string isDead = "IsDead";
     private CharacterStatus characterStatus;
     private float deadTime;
     bool oneTimeDead = true;
-    //CharacterStatus status = CharacterStatus CharacterStatus();
-
     void Start()
     {
         rigibody = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         characterStatus = GetComponent<CharacterStatus>();
+        footCollider = GetComponent<CapsuleCollider2D>();
     }
     void Update()
     {
@@ -39,7 +33,6 @@ public class Character : MonoBehaviour
                     rigibody.AddForce(new Vector2(0, 300));
                     oneTimeJump = false;
                 }
-
             }
         }
     }
@@ -60,7 +53,6 @@ public class Character : MonoBehaviour
                 animator.SetTrigger(isDead);
                 oneTimeDead = false;
             }
-            //rigibody.gravityScale = 0;
             rigibody.constraints = RigidbodyConstraints2D.FreezePosition;
             GetComponent<CapsuleCollider2D>().isTrigger = true;
             GetComponent<PolygonCollider2D>().isTrigger = true;
@@ -70,9 +62,7 @@ public class Character : MonoBehaviour
                 Destroy(gameObject);
             }
         }
-    }
-    
-    
+    } 
     public void CharacterMove()
     {
         horizontal = Input.GetAxisRaw("Horizontal");
@@ -129,31 +119,9 @@ public class Character : MonoBehaviour
     public void OnCollisionEnter2D(Collision2D collision)
     {
         animator.SetBool(isJumping, false);
-        oneTimeJump = true;
-
-        ///  Debug.Log(collision.collider.GetType());
-        /*footCollider = GetComponent<CapsuleCollider2D>();
-
-        if (footCollider.IsTouching == true)
+        if(collision.otherCollider.GetType()==footCollider.GetType())
         {
-            Debug.Log("Melih");
+            oneTimeJump = true;
         }
-        else
-        {
-            Debug.Log("Meliheeee");
-        }
-        /*  Debug.Log(collision.collider.GetType());
-          //Debug.Log(footCollider.GetType());
-          string footCollider = collision.collider.GetType().ToString.;
-          //Debug.Log("eee)");
-          //"UnityEngine.BoxCollider2D"
-          if (collision.collider.GetType().ToString == "BoxCollider2D" )
-      {
-          Debug.Log("Melih");
-      }
-      else
-      {
-          Debug.Log("Meliheeee");
-      }*/
     }
 }

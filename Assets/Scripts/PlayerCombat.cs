@@ -6,34 +6,26 @@ public class PlayerCombat : MonoBehaviour
 {
     private string isAttacking = "Isattacking";
     private string isWaiting = "Iswaiting";
-    private string isDamaged = "IsDamaged";
-    private Rigidbody2D enemyrigidbody;
+    public LayerMask enemyLayers;
     private CharacterStatus status;
     public Transform attackPoint;
     public float attackRange;
-    public LayerMask enemyLayers;
     private Animator animator;
-    private Animator enemyAnimator;
     [SerializeField] private int damage;
-    private EnemyStatus enemyStatus;
-    [SerializeField] private GameObject enemy;
     [SerializeField] private int missPossiblity;
     [SerializeField] private int CriticalPossiblity;
     [SerializeField] private int spendedStamina;
     [SerializeField] private int knockback;
     void Start()
     {
-        enemyrigidbody = enemy.GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         status = GetComponent<CharacterStatus>();
-        enemyStatus = enemy.GetComponent<EnemyStatus>();
-        enemyAnimator = enemy.GetComponent<Animator>();
     }
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
-            Attack();
+            Attack();       
         }
         if (Input.GetKeyUp(KeyCode.Mouse0))
         {
@@ -42,42 +34,30 @@ public class PlayerCombat : MonoBehaviour
     }
     public void Attack()
     {
-            if (status.stamina > spendedStamina)
+        if (status.stamina > spendedStamina)
+        {
+            animator.SetTrigger(isAttacking);
+            status.stamina = status.stamina - spendedStamina;
+            Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
+            int random = UnityEngine.Random.Range(0, 100);
+            if (random < missPossiblity)
             {
-                animator.SetTrigger(isAttacking);
-                status.stamina = status.stamina - spendedStamina;
-                Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
-                int random = UnityEngine.Random.Range(0, 100);
-                if (random < missPossiblity)
+                Debug.Log("Miss " + random);
+            }
+            else
+            {
+                random = UnityEngine.Random.Range(0, 100);
+                int currentDamage = damage;
+                if (random < CriticalPossiblity)
                 {
-                    Debug.Log("Miss " + random);
+                    currentDamage = damage * 2;
                 }
-                else
-                {
                     foreach (Collider2D enemy in hitEnemies)
-                    {
-                        random = UnityEngine.Random.Range(0, 100);
-                        if (random < CriticalPossiblity)
-                        {
-                            Debug.Log("critical " + random);
-                            enemyStatus.health -= 2 * damage;
-                        }
-                        else
-                        {
-                            Debug.Log("we hit " + enemy.name);
-                            enemyStatus.health -= damage;
-                        enemyAnimator.SetTrigger(isDamaged);
-                        }
-                        if (enemy.transform.position.x > transform.position.x)
-                        {
-                            enemyrigidbody.AddForce(new Vector2(knockback, 0));
-                        }
-                        if (enemy.transform.position.x < transform.position.x)
-                        {
-                            enemyrigidbody.AddForce(new Vector2(-knockback, 0));
-                        }
-                    }
+                {
+                    EnemyCombat enemyCombat = enemy.GetComponent<EnemyCombat>();
+                    enemyCombat.TakeDamage(currentDamage,knockback,transform);
                 }
+            }
         }
     }
     private void OnDrawGizmosSelected()
@@ -87,5 +67,9 @@ public class PlayerCombat : MonoBehaviour
             return;
         }
         Gizmos.DrawWireSphere(attackPoint.position, attackRange);
+    }
+    public void TakeDamage(int damage)
+    {
+        status.health -= damage;
     }
 }
