@@ -19,6 +19,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2998418470301561860, guid: 739321165f070994c89a63c0afac204f,
         type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2998418470301561860, guid: 739321165f070994c89a63c0afac204f,
+        type: 3}
       propertyPath: m_SpriteTilingProperty.pivot.x
       value: 0.5
       objectReference: {fileID: 0}
@@ -36,6 +41,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2998418470301561860, guid: 739321165f070994c89a63c0afac204f,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3322240279824995168, guid: 739321165f070994c89a63c0afac204f,
         type: 3}
@@ -158,6 +168,5 @@ PrefabInstance:
       propertyPath: m_FlipX
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 2998418470301561860, guid: 739321165f070994c89a63c0afac204f, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 739321165f070994c89a63c0afac204f, type: 3}
