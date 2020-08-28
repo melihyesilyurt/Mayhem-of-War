@@ -887,6 +887,16 @@ PrefabInstance:
       propertyPath: attackSpeed
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 442158063000471437, guid: c3d5588ae5cbc41459616149d0ca380b,
+        type: 3}
+      propertyPath: walkDistance
+      value: 6.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 442158063000471437, guid: c3d5588ae5cbc41459616149d0ca380b,
+        type: 3}
+      propertyPath: attackDistance
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 2898114209329162193, guid: c3d5588ae5cbc41459616149d0ca380b,
         type: 3}
       propertyPath: m_Controller
@@ -895,12 +905,12 @@ PrefabInstance:
     - target: {fileID: 2898114209329162194, guid: c3d5588ae5cbc41459616149d0ca380b,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.083
+      value: 3.892
       objectReference: {fileID: 0}
     - target: {fileID: 2898114209329162194, guid: c3d5588ae5cbc41459616149d0ca380b,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.423
+      value: -1.233
       objectReference: {fileID: 0}
     - target: {fileID: 2898114209329162194, guid: c3d5588ae5cbc41459616149d0ca380b,
         type: 3}
@@ -970,7 +980,27 @@ PrefabInstance:
     - target: {fileID: 2898114209329162206, guid: c3d5588ae5cbc41459616149d0ca380b,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4259940258380071189, guid: c3d5588ae5cbc41459616149d0ca380b,
+        type: 3}
+      propertyPath: launchForce
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4259940258380071189, guid: c3d5588ae5cbc41459616149d0ca380b,
+        type: 3}
+      propertyPath: spendedStamina
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 4259940258380071189, guid: c3d5588ae5cbc41459616149d0ca380b,
+        type: 3}
+      propertyPath: CriticalPossiblity
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4259940258380071189, guid: c3d5588ae5cbc41459616149d0ca380b,
+        type: 3}
+      propertyPath: damage
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 5313443052403710247, guid: c3d5588ae5cbc41459616149d0ca380b,
         type: 3}
@@ -1870,12 +1900,12 @@ PrefabInstance:
     - target: {fileID: 715124356329640812, guid: 040323e9a5e93c34baa71fe5d3839ba2,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.311
+      value: -1.98
       objectReference: {fileID: 0}
     - target: {fileID: 715124356329640812, guid: 040323e9a5e93c34baa71fe5d3839ba2,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.46
+      value: -1.4
       objectReference: {fileID: 0}
     - target: {fileID: 715124356329640812, guid: 040323e9a5e93c34baa71fe5d3839ba2,
         type: 3}
@@ -1981,7 +2011,7 @@ PrefabInstance:
     - target: {fileID: 2989721487477887747, guid: 040323e9a5e93c34baa71fe5d3839ba2,
         type: 3}
       propertyPath: health
-      value: 10000
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 2989721487477887747, guid: 040323e9a5e93c34baa71fe5d3839ba2,
         type: 3}
@@ -3761,6 +3791,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   character: {fileID: 1827427795}
+  goldCoin: {fileID: 728824453130678295, guid: 8dbc37d20bcd4714db3d2645fd4cee8d, type: 3}
 --- !u!1 &518382356
 GameObject:
   m_ObjectHideFlags: 0
@@ -4113,12 +4144,12 @@ PrefabInstance:
     - target: {fileID: 3079853330458217788, guid: b27e3f577f074ab4ab4fd292c1e6e734,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.961
+      value: 0.07
       objectReference: {fileID: 0}
     - target: {fileID: 3079853330458217788, guid: b27e3f577f074ab4ab4fd292c1e6e734,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.223
+      value: -1.43
       objectReference: {fileID: 0}
     - target: {fileID: 3079853330458217788, guid: b27e3f577f074ab4ab4fd292c1e6e734,
         type: 3}
@@ -13523,10 +13554,15 @@ PrefabInstance:
       propertyPath: m_Name
       value: Traitor Soldier
       objectReference: {fileID: 0}
+    - target: {fileID: 5444046013606693012, guid: 17fefab3ab00d824ba7e36a76635c062,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5444046013606693016, guid: 17fefab3ab00d824ba7e36a76635c062,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.386435
+      value: -1.544
       objectReference: {fileID: 0}
     - target: {fileID: 5444046013606693016, guid: 17fefab3ab00d824ba7e36a76635c062,
         type: 3}

@@ -25,7 +25,7 @@ public class PlayerCombat : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
-            Attack();       
+            Attack();
         }
         if (Input.GetKeyUp(KeyCode.Mouse0))
         {
@@ -52,10 +52,22 @@ public class PlayerCombat : MonoBehaviour
                 {
                     currentDamage = damage * 2;
                 }
-                    foreach (Collider2D enemy in hitEnemies)
+                foreach (Collider2D enemy in hitEnemies)
                 {
-                    EnemyCombat enemyCombat = enemy.GetComponent<EnemyCombat>();
-                    enemyCombat.TakeDamage(currentDamage,knockback,transform);
+
+                    if (enemy.gameObject.tag == "EnemyArcher")
+                    {
+
+                        EnemyRanged enemyRanged = enemy.GetComponent<EnemyRanged>();
+                        enemyRanged.TakeDamage(currentDamage, knockback, transform);
+
+                    }
+                    else
+                    {
+                        EnemyCombat enemyCombat = enemy.GetComponent<EnemyCombat>();
+                        enemyCombat.TakeDamage(currentDamage, knockback, transform);
+                    }
+
                 }
             }
         }
@@ -71,5 +83,13 @@ public class PlayerCombat : MonoBehaviour
     public void TakeDamage(int damage)
     {
         status.health -= damage;
+    }
+    public void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Arrow")
+        {
+            EnemyRanged.Instance.ArrowArrived();
+            Destroy(collision.gameObject);
+        }
     }
 }

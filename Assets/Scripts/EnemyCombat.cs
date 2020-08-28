@@ -15,8 +15,6 @@ public class EnemyCombat : MonoBehaviour
     public LayerMask enemyLayers;
     [SerializeField] private int spendedStamina;
     [SerializeField] private int CriticalPossiblity;
-    [SerializeField] private float attackSpeed;
-    private float timeAttack;
     private Animator animator;
     void Start()
     {
@@ -49,7 +47,7 @@ public class EnemyCombat : MonoBehaviour
                 foreach (Collider2D character in hitCharacter)
                 {
                     PlayerCombat playerCombat = character.GetComponent<PlayerCombat>();
-                    Debug.Log(currentDamage);
+                    //Debug.Log(currentDamage);
                     playerCombat.TakeDamage(currentDamage);
                     break;
                 }

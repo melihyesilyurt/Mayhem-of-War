@@ -191,7 +191,6 @@ MonoBehaviour:
   stamina: 100
   healthRegeneration: 1
   staminaRegeneration: 10
-  Gold: {fileID: 0}
 --- !u!114 &5737577300643245467
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -213,7 +212,6 @@ MonoBehaviour:
     m_Bits: 1024
   spendedStamina: 0
   CriticalPossiblity: 0
-  attackSpeed: 0
 --- !u!60 &2998418470301561860
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -270,4 +268,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d135109e1880544d912c753880c6906, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attackDistance: 0.3
+  walkDistance: 5
   attackSpeed: 0
+  jumpPower: 300

@@ -8,16 +8,15 @@ public class EnemyStatus : MonoBehaviour
     public float stamina;
     [SerializeField] private int healthRegeneration;
     [SerializeField] private int staminaRegeneration;
-    [SerializeField]private GameObject Gold;
-    private Animator animator;
+    private GameObject gold;
     private Transform position;
     
     private int spawnGold=0;
 
     private void Start()
     {
+        gold = LevelController.Instance.goldCoin;
         position = GetComponent<Transform>();
-        animator = GetComponent<Animator>();
     }
     void Update()
     {
@@ -35,8 +34,8 @@ public class EnemyStatus : MonoBehaviour
         }
         if(spawnGold==1)
         {
-            Gold.transform.localPosition = position.position;
-            Instantiate(Gold);
+            gold.transform.localPosition = position.position;
+            Instantiate(gold);
         }
     }
 }

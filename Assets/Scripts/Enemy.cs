@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.Mathematics;
 using UnityEngine;
 
@@ -16,11 +17,16 @@ public class Enemy : MonoBehaviour
     private string isDead = "IsDead";
     private bool oneTimeJump = true;
     private EnemyCombat enemyCombat;
+    private EnemyRanged enemyRanged;
     private EnemyStatus enemystatus;
     bool oneTimeDead = true;
     private float deadTime;
+    [SerializeField] private float attackDistance;
+    [SerializeField] private float walkDistance;
     [SerializeField] private float attackSpeed;
     private float timeAttack;
+    private float timeJump;
+    [SerializeField] private int jumpPower;
     void Start()
     {
         character = LevelController.Instance.character;
@@ -28,25 +34,27 @@ public class Enemy : MonoBehaviour
         rigibody = GetComponent<Rigidbody2D>();
         enemyCombat = GetComponent<EnemyCombat>();
         enemystatus = GetComponent<EnemyStatus>();
-        timeAttack = attackSpeed+1;
+        enemyRanged = GetComponent<EnemyRanged>();
+        timeAttack = attackSpeed + 1;
+        timeJump = 1;
     }
     void Update()
     {
         distance = Vector3.Distance(transform.position, character.position);
-        if (distance < 5 && distance > 0.3f)
+        if (distance < walkDistance && distance > attackDistance)
         {
             walk = true;
             attack = false;
             //Debug.Log("yürüyor");
         }
-        if (distance < 0.3f)
+        if (distance < attackDistance)
         {
 
             walk = false;
             attack = true;
             //Debug.Log("ateş ediyor");
         }
-        if (distance > 5)
+        if (distance > walkDistance)
         {
             walk = false;
             attack = false;
@@ -66,7 +74,15 @@ public class Enemy : MonoBehaviour
                 if (attackSpeed < timeAttack)
                 {
                     timeAttack = 0;
-                    enemyCombat.Attack();
+                  
+                    if (gameObject.tag == "EnemyArcher")
+                    {
+                        enemyRanged.Attack();
+                    }
+                    else
+                    {
+                        enemyCombat.Attack();
+                    }      
                 }
                 animator.SetBool(isWalking, false);
                 animator.SetTrigger(isWaiting);
@@ -128,16 +144,23 @@ public class Enemy : MonoBehaviour
                 }
                 animator.SetBool(isWalking, true);
             }
+            timeJump += (1 * Time.deltaTime);
+            //Debug.Log(timeJump);
             if (character.transform.position.y > transform.localPosition.y)
             {
-                rigibody.AddForce(new Vector2(0, 300));
-                oneTimeJump = false;
-                animator.SetBool(isJumping, true);
+                if (timeJump>0.5f)
+                {
+                    rigibody.AddForce(new Vector2(0, jumpPower));
+                    oneTimeJump = false;
+                    animator.SetBool(isJumping, true);
+                    timeJump = 0;
+                }
             }
             else
             {
                 animator.SetBool(isJumping, false);
             }
+
         }
     }
     public void OnCollisionEnter2D(Collision2D collision)
