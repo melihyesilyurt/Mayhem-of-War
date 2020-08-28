@@ -12,6 +12,7 @@ public class LevelController : MonoBehaviour
     private Transform spawnPoint;
     private GameObject enemy;
     private float spawnTime=5;
+    public bool spawnRigtNow;
     void Awake()
     {
         Instance = GetComponent<LevelController>();
@@ -19,14 +20,18 @@ public class LevelController : MonoBehaviour
     private void Update()
     {
         spawnTime += (1 * Time.deltaTime);
-        if(spawnTime>5.00f)
+        if (spawnRigtNow==true)
         {
-            Debug.Log("Spawn Vakti");
-            int random = UnityEngine.Random.Range(0, Spawners.Length);
-            int randomEnemy = UnityEngine.Random.Range(0, enemies.Length);
-            enemy = enemies[randomEnemy];
-            GameObject newEnemy = Instantiate(enemy, Spawners[random].transform.position, character.rotation);
-            spawnTime = 0;
+            if (spawnTime > 5.00f)
+            {
+                Debug.Log("Spawn Vakti");
+                int random = UnityEngine.Random.Range(0, Spawners.Length);
+                int randomEnemy = UnityEngine.Random.Range(0, enemies.Length);
+                enemy = enemies[randomEnemy];
+                GameObject newEnemy = Instantiate(enemy, Spawners[random].transform.position, character.rotation);
+                spawnTime = 0;
+            }
         }
+        
     }
 }

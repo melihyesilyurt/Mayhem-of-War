@@ -9,6 +9,7 @@ TagManager:
   - EnemyArcher
   - Arrow
   - Spawner
+  - Platform
   layers:
   - Default
   - TransparentFX

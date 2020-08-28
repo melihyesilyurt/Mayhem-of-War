@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -20,6 +21,9 @@ public class EnemyRanged : MonoBehaviour
     public float launchForce;
     private int numberArrows=0;
     private GameObject[] Arrows;
+    private double xAxis;
+    private double yAxis;
+    private double degree;
 
     void Awake()
     {
@@ -42,11 +46,32 @@ public class EnemyRanged : MonoBehaviour
             GameObject newArrow = Instantiate(arrow, transform.position, character.rotation);
             Vector3 temp = new Vector3(0, -0.07619f, 0);
             newArrow.transform.position += temp;
+
+            xAxis = character.position.x - newArrow.transform.position.x;
+            yAxis = character.position.y - newArrow.transform.position.y;
+            Debug.Log("X: "+xAxis +"Y: " +yAxis);
+            double result = yAxis / xAxis;
+            degree = Math.Atan(result);          
+            degree = degree * (180 / Math.PI);          
+            Debug.Log(degree);
+            newArrow.transform.Rotate(0f, 0f, (float)degree, Space.Self);
+            if(xAxis<0)
+            {
+                xAxis = -xAxis;
+               
+            }
+            if(yAxis<0)
+            {
+                yAxis = -yAxis;
+               
+            }
             Arrows[numberArrows] = newArrow;
             numberArrows++;         
             if (character.transform.position.x > transform.localPosition.x)
             {
-                newArrow.GetComponent<Rigidbody2D>().velocity = transform.right * launchForce;
+                //newArrow.GetComponent<Rigidbody2D>().velocity = transform.right * launchForce;
+                newArrow.GetComponent<Rigidbody2D>().AddForce(new Vector2(launchForce*((float)xAxis),0));
+
                 if (transform.localScale.x < 0)
                 {
                     transform.localScale = new Vector3(-1 * transform.localScale.x, transform.localScale.y, 1);
@@ -66,7 +91,8 @@ public class EnemyRanged : MonoBehaviour
             }
             else if (character.transform.position.x < transform.localPosition.x)
             {
-                newArrow.GetComponent<Rigidbody2D>().velocity = -transform.right * launchForce;
+                //newArrow.GetComponent<Rigidbody2D>().velocity = -transform.right * launchForce;
+                newArrow.GetComponent<Rigidbody2D>().AddForce(new Vector2(-launchForce * ((float)xAxis), 0));
                 if (transform.localScale.x < 0)
                 {
                     transform.localScale = new Vector3(transform.localScale.x, transform.localScale.y, 1);                  
@@ -85,6 +111,14 @@ public class EnemyRanged : MonoBehaviour
                     arrow.transform.localScale = new Vector3(-1* arrow.transform.localScale.x, arrow.transform.localScale.y, 1);
                    
                 }
+            }
+            if(character.transform.position.y > transform.localPosition.y)
+            {
+                newArrow.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, launchForce  * ((float)yAxis)));
+            }
+            else if(character.transform.position.y < transform.localPosition.y)
+            {
+                newArrow.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, -launchForce  * ((float)yAxis)));
             }
             if (numberArrows > 2)
             {
