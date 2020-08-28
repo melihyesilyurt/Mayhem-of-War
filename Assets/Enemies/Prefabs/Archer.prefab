@@ -12,15 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5aa87e03765cced438f717cc6e05f461, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackPoint: {fileID: 1269750559754998479}
   attackRange: 0.26
-  damage: 0
-  enemyLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  spendedStamina: 0
-  CriticalPossiblity: 0
+  damage: 20
+  spendedStamina: 20
+  CriticalPossiblity: 10
   arrow: {fileID: 3478625912708989440, guid: 7bc1b65d85730654d8139717f119683f, type: 3}
+  launchForce: 3
 --- !u!1001 &442158061342504124
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -28,6 +25,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1666380593, guid: 739321165f070994c89a63c0afac204f, type: 3}
+      propertyPath: attackSpeed
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1666380593, guid: 739321165f070994c89a63c0afac204f, type: 3}
+      propertyPath: attackDistance
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1666380593, guid: 739321165f070994c89a63c0afac204f, type: 3}
+      propertyPath: walkDistance
+      value: 6.5
+      objectReference: {fileID: 0}
     - target: {fileID: 1710755439541085811, guid: 739321165f070994c89a63c0afac204f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -185,12 +194,6 @@ PrefabInstance:
 --- !u!1 &2898114209329162206 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3322240279824995170, guid: 739321165f070994c89a63c0afac204f,
-    type: 3}
-  m_PrefabInstance: {fileID: 442158061342504124}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &1269750559754998479 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1710755439541085811, guid: 739321165f070994c89a63c0afac204f,
     type: 3}
   m_PrefabInstance: {fileID: 442158061342504124}
   m_PrefabAsset: {fileID: 0}

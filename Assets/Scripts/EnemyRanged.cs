@@ -12,7 +12,6 @@ public class EnemyRanged : MonoBehaviour
     private Rigidbody2D rigibody;
     public float attackRange;
     [SerializeField] private int damage;
-    public LayerMask enemyLayers;
     [SerializeField] private int spendedStamina;
     [SerializeField] private int CriticalPossiblity;
     private Animator animator;

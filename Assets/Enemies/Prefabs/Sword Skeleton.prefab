@@ -7,6 +7,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1666380593, guid: 739321165f070994c89a63c0afac204f, type: 3}
+      propertyPath: attackSpeed
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 1710755439541085811, guid: 739321165f070994c89a63c0afac204f,
         type: 3}
       propertyPath: m_LocalPosition.y
@@ -161,7 +165,17 @@ PrefabInstance:
     - target: {fileID: 5737577300643245467, guid: 739321165f070994c89a63c0afac204f,
         type: 3}
       propertyPath: damage
-      value: 40
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 5737577300643245467, guid: 739321165f070994c89a63c0afac204f,
+        type: 3}
+      propertyPath: spendedStamina
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 5737577300643245467, guid: 739321165f070994c89a63c0afac204f,
+        type: 3}
+      propertyPath: CriticalPossiblity
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 739321165f070994c89a63c0afac204f, type: 3}

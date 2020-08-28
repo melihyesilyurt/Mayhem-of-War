@@ -8,6 +8,7 @@ TagManager:
   - Enemy
   - EnemyArcher
   - Arrow
+  - Spawner
   layers:
   - Default
   - TransparentFX
