@@ -15,10 +15,10 @@ public class EnemyRanged : MonoBehaviour
     [SerializeField] private int spendedStamina;
     [SerializeField] private int CriticalPossiblity;
     private Animator animator;
-    [SerializeField]private GameObject arrow;
+    [SerializeField] private GameObject arrow;
     private Transform character;
     public float launchForce;
-    private int numberArrows=0;
+    private int numberArrows = 0;
     private GameObject[] Arrows;
     private double xAxis;
     private double yAxis;
@@ -36,7 +36,7 @@ public class EnemyRanged : MonoBehaviour
         if (status.stamina > spendedStamina)
         {
             animator.SetTrigger(isAttacking);
-            status.stamina = status.stamina - spendedStamina;    
+            status.stamina = status.stamina - spendedStamina;
             GameObject newArrow = Instantiate(arrow, transform.position, character.rotation);
             Arrow arrowBehaviour = newArrow.GetComponent<Arrow>();
             arrowBehaviour.owner = this;
@@ -44,18 +44,16 @@ public class EnemyRanged : MonoBehaviour
             newArrow.transform.position += temp;
             xAxis = character.position.x - newArrow.transform.position.x;
             yAxis = character.position.y - newArrow.transform.position.y;
-            Debug.Log("X: "+xAxis +"Y: " +yAxis);
             double result = yAxis / xAxis;
-            degree = Math.Atan(result);          
-            degree = degree * (180 / Math.PI);          
-            Debug.Log(degree);
+            degree = Math.Atan(result);
+            degree = degree * (180 / Math.PI);
             newArrow.transform.Rotate(0f, 0f, (float)degree, Space.Self);
-            Vector2 directionVector = new Vector2((float)xAxis, (float)yAxis);      
-            Arrows[numberArrows] = newArrow;      
+            Vector2 directionVector = new Vector2((float)xAxis, (float)yAxis);
+            Arrows[numberArrows] = newArrow;
             numberArrows++;
             newArrow.GetComponent<Rigidbody2D>().AddForce(launchForce * directionVector.normalized);
-            if (character.transform.position.x > transform.localPosition.x)//oka z ile yön ver //ok damage ini kontrol et niye bu kadar fazla vuruyor?
-            {            
+            if (character.transform.position.x > transform.localPosition.x)
+            {
                 if (transform.localScale.x < 0)
                 {
                     transform.localScale = new Vector3(-1 * transform.localScale.x, transform.localScale.y, 1);
@@ -64,33 +62,17 @@ public class EnemyRanged : MonoBehaviour
                 {
                     transform.localScale = new Vector3(transform.localScale.x, transform.localScale.y, 1);
                 }
-                if (arrow.transform.localScale.x < 0)
-                {
-                    arrow.transform.localScale = new Vector3(-1 * arrow.transform.localScale.x, arrow.transform.localScale.y, 1);   
-                }
-                else
-                {
-                    arrow.transform.localScale = new Vector3( arrow.transform.localScale.x, arrow.transform.localScale.y, 1);          
-                }
+                newArrow.transform.Rotate(0f, 0f, 180, Space.Self);
             }
             else if (character.transform.position.x < transform.localPosition.x)
             {
                 if (transform.localScale.x < 0)
                 {
-                    transform.localScale = new Vector3(transform.localScale.x, transform.localScale.y, 1);                  
+                    transform.localScale = new Vector3(transform.localScale.x, transform.localScale.y, 1);
                 }
                 else
                 {
-                    transform.localScale = new Vector3(-1 * transform.localScale.x, transform.localScale.y, 1);       
-                }
-                if(arrow.transform.localScale.x <0)
-                {
-                    arrow.transform.localScale = new Vector3(arrow.transform.localScale.x, arrow.transform.localScale.y, 1);
- 
-                }
-                else
-                {
-                    arrow.transform.localScale = new Vector3(-1* arrow.transform.localScale.x, arrow.transform.localScale.y, 1);                
+                    transform.localScale = new Vector3(-1 * transform.localScale.x, transform.localScale.y, 1);
                 }
             }
             if (numberArrows > 2)
