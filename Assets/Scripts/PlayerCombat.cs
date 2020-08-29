@@ -88,7 +88,7 @@ public class PlayerCombat : MonoBehaviour
     {
         if (collision.gameObject.tag == "Arrow")
         {
-            EnemyRanged.Instance.ArrowArrived();
+            collision.GetComponent<Arrow>().owner.OnArrowHit();
             Destroy(collision.gameObject);
         }
     }

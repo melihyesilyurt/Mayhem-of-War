@@ -7,7 +7,6 @@ using UnityEngine.UIElements;
 public class EnemyRanged : MonoBehaviour
 {
     private string isAttacking = "Isattacking";
-    public static EnemyRanged Instance;
     private string isDamaged = "IsDamaged";
     private EnemyStatus status;
     private Rigidbody2D rigibody;
@@ -24,11 +23,6 @@ public class EnemyRanged : MonoBehaviour
     private double xAxis;
     private double yAxis;
     private double degree;
-
-    void Awake()
-    {
-        Instance = GetComponent<EnemyRanged>();
-    }
     void Start()
     {
         character = LevelController.Instance.character;
@@ -44,9 +38,10 @@ public class EnemyRanged : MonoBehaviour
             animator.SetTrigger(isAttacking);
             status.stamina = status.stamina - spendedStamina;    
             GameObject newArrow = Instantiate(arrow, transform.position, character.rotation);
+            Arrow arrowBehaviour = newArrow.GetComponent<Arrow>();
+            arrowBehaviour.owner = this;
             Vector3 temp = new Vector3(0, -0.07619f, 0);
             newArrow.transform.position += temp;
-
             xAxis = character.position.x - newArrow.transform.position.x;
             yAxis = character.position.y - newArrow.transform.position.y;
             Debug.Log("X: "+xAxis +"Y: " +yAxis);
@@ -55,23 +50,12 @@ public class EnemyRanged : MonoBehaviour
             degree = degree * (180 / Math.PI);          
             Debug.Log(degree);
             newArrow.transform.Rotate(0f, 0f, (float)degree, Space.Self);
-            if(xAxis<0)
-            {
-                xAxis = -xAxis;
-               
-            }
-            if(yAxis<0)
-            {
-                yAxis = -yAxis;
-               
-            }
-            Arrows[numberArrows] = newArrow;
-            numberArrows++;         
-            if (character.transform.position.x > transform.localPosition.x)
-            {
-                //newArrow.GetComponent<Rigidbody2D>().velocity = transform.right * launchForce;
-                newArrow.GetComponent<Rigidbody2D>().AddForce(new Vector2(launchForce*((float)xAxis),0));
-
+            Vector2 directionVector = new Vector2((float)xAxis, (float)yAxis);      
+            Arrows[numberArrows] = newArrow;      
+            numberArrows++;
+            newArrow.GetComponent<Rigidbody2D>().AddForce(launchForce * directionVector.normalized);
+            if (character.transform.position.x > transform.localPosition.x)//oka z ile yön ver //ok damage ini kontrol et niye bu kadar fazla vuruyor?
+            {            
                 if (transform.localScale.x < 0)
                 {
                     transform.localScale = new Vector3(-1 * transform.localScale.x, transform.localScale.y, 1);
@@ -91,8 +75,6 @@ public class EnemyRanged : MonoBehaviour
             }
             else if (character.transform.position.x < transform.localPosition.x)
             {
-                //newArrow.GetComponent<Rigidbody2D>().velocity = -transform.right * launchForce;
-                newArrow.GetComponent<Rigidbody2D>().AddForce(new Vector2(-launchForce * ((float)xAxis), 0));
                 if (transform.localScale.x < 0)
                 {
                     transform.localScale = new Vector3(transform.localScale.x, transform.localScale.y, 1);                  
@@ -108,17 +90,8 @@ public class EnemyRanged : MonoBehaviour
                 }
                 else
                 {
-                    arrow.transform.localScale = new Vector3(-1* arrow.transform.localScale.x, arrow.transform.localScale.y, 1);
-                   
+                    arrow.transform.localScale = new Vector3(-1* arrow.transform.localScale.x, arrow.transform.localScale.y, 1);                
                 }
-            }
-            if(character.transform.position.y > transform.localPosition.y)
-            {
-                newArrow.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, launchForce  * ((float)yAxis)));
-            }
-            else if(character.transform.position.y < transform.localPosition.y)
-            {
-                newArrow.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, -launchForce  * ((float)yAxis)));
             }
             if (numberArrows > 2)
             {
@@ -142,7 +115,7 @@ public class EnemyRanged : MonoBehaviour
             rigibody.AddForce(new Vector2(-knockback, 0));
         }
     }
-    public void ArrowArrived()
+    public void OnArrowHit()
     {
         int random = UnityEngine.Random.Range(0, 100);
         int currentDamage = damage;

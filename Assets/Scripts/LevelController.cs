@@ -9,7 +9,6 @@ public class LevelController : MonoBehaviour
     public GameObject[] enemies;
     public GameObject goldCoin;
     public GameObject[] Spawners;
-    private Transform spawnPoint;
     private GameObject enemy;
     private float spawnTime=5;
     public bool spawnRigtNow;
