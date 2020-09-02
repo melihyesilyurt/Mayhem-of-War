@@ -74,5 +74,6 @@ public class EnemyCombat : MonoBehaviour
         {
             rigibody.AddForce(new Vector2(-knockback, 0));
         }
+       // ScoreController.Instance.ScorePoint += 5;
     }
 }

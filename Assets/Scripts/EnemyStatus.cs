@@ -31,9 +31,11 @@ public class EnemyStatus : MonoBehaviour
         if (health <= 0)
         {
             spawnGold++;
+            
         }
         if(spawnGold==1)
         {
+            ScoreController.Instance.ScorePoint += 25;
             gold.transform.localPosition = position.position;
             Instantiate(gold);
         }

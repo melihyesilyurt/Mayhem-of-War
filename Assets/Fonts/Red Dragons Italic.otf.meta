@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: cfa1a0905caa01742b69081ca22456c8
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Red Dragons Italic
+  fontNames:
+  - Red Dragons Italic
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 40aeb235d3a9fe5459cb6580878684c1, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

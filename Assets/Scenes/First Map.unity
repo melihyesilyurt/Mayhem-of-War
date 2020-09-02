@@ -980,12 +980,12 @@ PrefabInstance:
     - target: {fileID: 2898114209329162206, guid: c3d5588ae5cbc41459616149d0ca380b,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4259940258380071189, guid: c3d5588ae5cbc41459616149d0ca380b,
         type: 3}
       propertyPath: launchForce
-      value: 30
+      value: 300
       objectReference: {fileID: 0}
     - target: {fileID: 4259940258380071189, guid: c3d5588ae5cbc41459616149d0ca380b,
         type: 3}
@@ -2063,7 +2063,7 @@ PrefabInstance:
     - target: {fileID: 715124356329640812, guid: 040323e9a5e93c34baa71fe5d3839ba2,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.43
+      value: 1.91
       objectReference: {fileID: 0}
     - target: {fileID: 715124356329640812, guid: 040323e9a5e93c34baa71fe5d3839ba2,
         type: 3}
@@ -3851,6 +3851,7 @@ GameObject:
   - component: {fileID: 509940639}
   - component: {fileID: 509940642}
   - component: {fileID: 509940643}
+  - component: {fileID: 509940644}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -3965,7 +3966,33 @@ MonoBehaviour:
   - {fileID: 2026235065}
   - {fileID: 907055634}
   - {fileID: 740881628}
-  spawnRigtNow: 0
+  spawnRigtNow: 1
+  archer: {fileID: 2898114209329162206, guid: c3d5588ae5cbc41459616149d0ca380b, type: 3}
+  shieldSkeleton: {fileID: 8177180165500665950, guid: 18073a2fcde70564a88c474cbbd659b7,
+    type: 3}
+  swordSkeleton: {fileID: 1860295222970773083, guid: 1caf68c7b1dd3a943ac6be05bb6dc33c,
+    type: 3}
+  traitorSoldier: {fileID: 5444046013606693012, guid: 17fefab3ab00d824ba7e36a76635c062,
+    type: 3}
+  wizard: {fileID: 3079853330458217776, guid: b27e3f577f074ab4ab4fd292c1e6e734, type: 3}
+  swordSkeletonPossibility: 23
+  shieldSkeletonPossibility: 46
+  archerPossibility: 68
+  traitorSoldierPossibility: 85
+  wizardPossibility: 100
+--- !u!114 &509940644
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 509940638}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b44549b51c8f51943a5d82c22ec4f474, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyDeathCount: 0
 --- !u!1 &518382356
 GameObject:
   m_ObjectHideFlags: 0

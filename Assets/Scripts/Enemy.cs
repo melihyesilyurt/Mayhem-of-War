@@ -111,6 +111,8 @@ public class Enemy : MonoBehaviour
             if (1.75f < deadTime)
             {
                 Destroy(gameObject);
+                ScoreController.Instance.comboCount++;
+                ScoreController.Instance.enemyDeathCount++;
             }
         }
     }

@@ -96,6 +96,7 @@ public class EnemyRanged : MonoBehaviour
         {
             rigibody.AddForce(new Vector2(-knockback, 0));
         }
+        ScoreController.Instance.ScorePoint += 5;
     }
     public void OnArrowHit()
     {

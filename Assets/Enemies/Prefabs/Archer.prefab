@@ -17,7 +17,7 @@ MonoBehaviour:
   spendedStamina: 20
   CriticalPossiblity: 10
   arrow: {fileID: 3478625912708989440, guid: 7bc1b65d85730654d8139717f119683f, type: 3}
-  launchForce: 3
+  launchForce: 150
 --- !u!1001 &442158061342504124
 PrefabInstance:
   m_ObjectHideFlags: 0

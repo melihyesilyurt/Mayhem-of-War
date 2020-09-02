@@ -60,6 +60,9 @@ public class Character : MonoBehaviour
             if (1.75f < deadTime)
             {
                 Destroy(gameObject);
+                ScoreController.Instance.GoldCoin+= characterStatus.goldAmount;
+                Debug.Log("Your Score: "+ ScoreController.Instance.ScorePoint);
+                Time.timeScale = 0;
             }
         }
     } 

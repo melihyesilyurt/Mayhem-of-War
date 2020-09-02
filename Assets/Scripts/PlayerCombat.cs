@@ -83,6 +83,7 @@ public class PlayerCombat : MonoBehaviour
     public void TakeDamage(int damage)
     {
         status.health -= damage;
+        ScoreController.Instance.ScorePoint += 2;
     }
     public void OnTriggerEnter2D(Collider2D collision)
     {
