@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 8781908604521585365}
   - component: {fileID: 5057043917174168456}
   - component: {fileID: 2802770269723057129}
+  - component: {fileID: 80418174261405701}
   m_Layer: 5
   m_Name: Map Photo
-  m_TagString: Untagged
+  m_TagString: Maps
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -129,6 +130,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &80418174261405701
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4058674860885559836}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 1, g: 0, b: 0.81827354, a: 1}
+  m_EffectDistance: {x: 4, y: -4}
+  m_UseGraphicAlpha: 1
 --- !u!1 &4447026032521221580
 GameObject:
   m_ObjectHideFlags: 0
@@ -219,9 +235,10 @@ GameObject:
   - component: {fileID: 8353189313672921196}
   - component: {fileID: 5307341689411065000}
   - component: {fileID: 3666170371226664855}
+  - component: {fileID: 7795452134531356929}
   m_Layer: 5
   m_Name: Lock
-  m_TagString: Untagged
+  m_TagString: Lock
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -336,6 +353,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &7795452134531356929
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6992259762870385590}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5b10636817499f42b8b723103975a1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  value: 0
 --- !u!1 &7325155212735402110
 GameObject:
   m_ObjectHideFlags: 0

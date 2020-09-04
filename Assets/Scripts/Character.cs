@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.LowLevel;
 
 public class Character : MonoBehaviour
 {
@@ -16,6 +17,7 @@ public class Character : MonoBehaviour
     private CharacterStatus characterStatus;
     private float deadTime;
     bool oneTimeDead = true;
+    private int money;
     void Start()
     {
         rigibody = GetComponent<Rigidbody2D>();
@@ -60,8 +62,12 @@ public class Character : MonoBehaviour
             if (1.75f < deadTime)
             {
                 Destroy(gameObject);
-                ScoreController.Instance.GoldCoin+= characterStatus.goldAmount;
-                Debug.Log("Your Score: "+ ScoreController.Instance.ScorePoint);
+                
+                money= PlayerPrefs.GetInt("GoldCoin")+characterStatus.goldAmount;
+               // GoldController.Instance.GoldCoin += characterStatus.goldAmount;
+                characterStatus.goldAmount = 0;
+                PlayerPrefs.SetInt("GoldCoin",money);
+               Debug.Log("Your Money: "+ PlayerPrefs.GetInt("GoldCoin"));
                 Time.timeScale = 0;
             }
         }

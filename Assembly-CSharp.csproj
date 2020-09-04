@@ -66,12 +66,15 @@
     <Compile Include="Assets\Scripts\Arrow.cs" />
     <Compile Include="Assets\Scripts\Camera.cs" />
     <Compile Include="Assets\Scripts\Character.cs" />
+    <Compile Include="Assets\Scripts\CharacterSpawner.cs" />
     <Compile Include="Assets\Scripts\CharacterStatus.cs" />
     <Compile Include="Assets\Scripts\Enemy.cs" />
     <Compile Include="Assets\Scripts\EnemyCombat.cs" />
     <Compile Include="Assets\Scripts\EnemyRanged.cs" />
     <Compile Include="Assets\Scripts\EnemyStatus.cs" />
+    <Compile Include="Assets\Scripts\GoldController.cs" />
     <Compile Include="Assets\Scripts\LevelController.cs" />
+    <Compile Include="Assets\Scripts\Lock.cs" />
     <Compile Include="Assets\Scripts\MarketScript.cs" />
     <Compile Include="Assets\Scripts\MenuScript.cs" />
     <Compile Include="Assets\Scripts\PlayerCombat.cs" />

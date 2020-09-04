@@ -108,9 +108,10 @@ GameObject:
   - component: {fileID: 3278467768164740025}
   - component: {fileID: 3278467768164740024}
   - component: {fileID: 2854367864580410578}
+  - component: {fileID: 5474537252855198512}
   m_Layer: 5
   m_Name: photo
-  m_TagString: Untagged
+  m_TagString: Characters
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -222,6 +223,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &5474537252855198512
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3278467768164740030}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 1, g: 0, b: 0.81960785, a: 0.5}
+  m_EffectDistance: {x: 4, y: -4}
+  m_UseGraphicAlpha: 1
 --- !u!1 &3278467769148949641
 GameObject:
   m_ObjectHideFlags: 0
@@ -430,9 +446,10 @@ GameObject:
   - component: {fileID: 4820056029731964129}
   - component: {fileID: 7025954522193023995}
   - component: {fileID: 5756311038534439733}
+  - component: {fileID: 5604475005271576241}
   m_Layer: 5
   m_Name: Lock
-  m_TagString: Untagged
+  m_TagString: Lock
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -544,3 +561,16 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &5604475005271576241
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4891290251735137029}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5b10636817499f42b8b723103975a1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  value: 0

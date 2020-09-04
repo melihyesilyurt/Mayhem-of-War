@@ -10,6 +10,9 @@ TagManager:
   - Arrow
   - Spawner
   - Platform
+  - Maps
+  - Characters
+  - Lock
   layers:
   - Default
   - TransparentFX

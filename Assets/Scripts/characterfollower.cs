@@ -5,7 +5,9 @@ using UnityEngine;
 public class characterfollower : MonoBehaviour
 {
     private Transform location;
-    public GameObject character;
+    public  GameObject character;
+
+    
     void Start()
     {
         location = GetComponent<Transform>();

@@ -5,7 +5,6 @@ using UnityEngine;
 public class ScoreController : MonoBehaviour
 {
     public static ScoreController Instance;
-    private int goldCoin;
     private int scorePoint;
     public int enemyDeathCount;
     private float timeScore;
@@ -13,11 +12,6 @@ public class ScoreController : MonoBehaviour
     public int comboCount;
     private int comboScore;
     private int highScore;
-    public int GoldCoin
-    {
-        get { return goldCoin; }
-        set { goldCoin = value; }
-    }
     public int ScorePoint
     {
         get { return scorePoint; }
@@ -37,8 +31,9 @@ public class ScoreController : MonoBehaviour
         if(scorePoint>highScore)
         {
             highScore = scorePoint;
+            PlayerPrefs.SetInt("HighScore", HighScore);
         }
-        Score();     
+        Score();
     }
     private void Score()
     {
