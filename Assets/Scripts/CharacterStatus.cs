@@ -9,6 +9,7 @@ public class CharacterStatus : MonoBehaviour
     [SerializeField]private int healthRegeneration;
     [SerializeField]private int staminaRegeneration;
     public int goldAmount;
+
     void Update()
     {
         if(health<100)
@@ -24,6 +25,7 @@ public class CharacterStatus : MonoBehaviour
     {
         if(collision.gameObject.tag=="Gold")
         {
+            MusicManager.Instance.PlayTakeGoldClip();
             GameObject gold = collision.gameObject;
             goldAmount += 25;
             Destroy(gold);

@@ -27,6 +27,9 @@ public class Enemy : MonoBehaviour
     private float timeAttack;
     private float timeJump;
     [SerializeField] private int jumpPower;
+    [SerializeField] private AudioClip enemyAttackClip;
+    [SerializeField] private AudioClip enemyDeathClip;
+    private AudioSource audioSource;
     void Start()
     {
         character = LevelController.Instance.character;
@@ -35,6 +38,7 @@ public class Enemy : MonoBehaviour
         enemyCombat = GetComponent<EnemyCombat>();
         enemystatus = GetComponent<EnemyStatus>();
         enemyRanged = GetComponent<EnemyRanged>();
+        audioSource = GetComponent<AudioSource>();
         timeAttack = attackSpeed + 1;
         timeJump = 1;
     }
@@ -147,7 +151,6 @@ public class Enemy : MonoBehaviour
                 animator.SetBool(isWalking, true);
             }
             timeJump += (1 * Time.deltaTime);
-            //Debug.Log(timeJump);
             if (character.transform.position.y > transform.localPosition.y)
             {
                 if (timeJump>0.5f)
@@ -162,12 +165,25 @@ public class Enemy : MonoBehaviour
             {
                 animator.SetBool(isJumping, false);
             }
-
         }
     }
     public void OnCollisionEnter2D(Collision2D collision)
     {
         animator.SetBool(isJumping, false);
         oneTimeJump = true;
+    }
+    public void PlayEnemyAttack()
+    {
+        audioSource.clip = enemyAttackClip;
+        PlaySound();
+    }
+    public void PlayEnemyDeath()
+    {
+        audioSource.clip = enemyDeathClip;
+        PlaySound();
+    }
+    private void PlaySound()
+    {
+        audioSource.Play();
     }
 }

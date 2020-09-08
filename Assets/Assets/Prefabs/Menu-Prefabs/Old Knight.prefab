@@ -7,10 +7,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2854367864580410578, guid: c722b3813df0f2a4d9fc317ceff9979b,
+        type: 3}
+      propertyPath: m_TargetGraphic
+      value: 
+      objectReference: {fileID: 1001711808118365931}
     - target: {fileID: 3278467769182190074, guid: c722b3813df0f2a4d9fc317ceff9979b,
         type: 3}
       propertyPath: m_Name
-      value: Character
+      value: Old Knight
       objectReference: {fileID: 0}
     - target: {fileID: 3278467769182190075, guid: c722b3813df0f2a4d9fc317ceff9979b,
         type: 3}
@@ -117,5 +122,28 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 4891290251735137029, guid: c722b3813df0f2a4d9fc317ceff9979b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6424181068322243285, guid: c722b3813df0f2a4d9fc317ceff9979b,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: a70b3fff8c0d54e41b799a19a9a33a3f,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c722b3813df0f2a4d9fc317ceff9979b, type: 3}
+--- !u!114 &1001711808118365931 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6424181068322243285, guid: c722b3813df0f2a4d9fc317ceff9979b,
+    type: 3}
+  m_PrefabInstance: {fileID: 6107317807460293694}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

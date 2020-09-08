@@ -40,6 +40,7 @@ public class LevelController : MonoBehaviour
             spawnTime += 1 * Time.deltaTime;
             if (spawnTime > respawnTime)
             {
+                MusicManager.Instance.PlayEnemySpawnClip();
                 Debug.Log("Spawn Vakti");
                 int random = UnityEngine.Random.Range(0, Spawners.Length);
                 int randomEnemy = UnityEngine.Random.Range(0, 100);

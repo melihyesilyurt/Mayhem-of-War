@@ -22,7 +22,7 @@ public class CharacterSpawner : MonoBehaviour
     public  void Spawn()
     {
         spawnedCharacter= Instantiate(choosenCharacter, spawnPoint.transform.position, spawnPoint.transform.rotation);
-        GetComponent<characterfollower>().character = spawnedCharacter;
+        GetComponent<CharacterFollower>().character = spawnedCharacter;
         LevelController.Instance.character = spawnedCharacter.transform;
     }
     private void SelectCharacter()

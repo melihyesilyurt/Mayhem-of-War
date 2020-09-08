@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class characterfollower : MonoBehaviour
+public class CharacterFollower : MonoBehaviour
 {
     private Transform location;
     public  GameObject character;

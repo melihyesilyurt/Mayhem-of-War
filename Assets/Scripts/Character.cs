@@ -5,7 +5,7 @@ using UnityEngine.LowLevel;
 
 public class Character : MonoBehaviour
 {
-    public GameObject character;
+    public GameObject character; 
     private Rigidbody2D rigibody;
     private CapsuleCollider2D footCollider;
     public float horizontal = 0;
@@ -18,12 +18,15 @@ public class Character : MonoBehaviour
     private float deadTime;
     bool oneTimeDead = true;
     private int money;
+    [SerializeField] private AudioClip characterAttackClip;
+    private AudioSource audioSource;
     void Start()
     {
         rigibody = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         characterStatus = GetComponent<CharacterStatus>();
         footCollider = GetComponent<CapsuleCollider2D>();
+        audioSource = GetComponent<AudioSource>();
     }
     void Update()
     {
@@ -61,8 +64,8 @@ public class Character : MonoBehaviour
             deadTime += (1 * Time.deltaTime);
             if (1.75f < deadTime)
             {
-                Destroy(gameObject);
-                
+                MusicManager.Instance.PlayEndMusicClip();
+                Destroy(gameObject);               
                 money= PlayerPrefs.GetInt("GoldCoin")+characterStatus.goldAmount;
                // GoldController.Instance.GoldCoin += characterStatus.goldAmount;
                 characterStatus.goldAmount = 0;
@@ -74,6 +77,7 @@ public class Character : MonoBehaviour
     } 
     public void CharacterMove()
     {
+        
         horizontal = Input.GetAxisRaw("Horizontal");
         rigibody.velocity = new Vector3(horizontal * 3, rigibody.velocity.y, 0);
     }
@@ -88,7 +92,6 @@ public class Character : MonoBehaviour
             }
             else if (horizontal > 0)
             {
-               
                 if (character.transform.localScale.x < 0)
                 {
                     character.transform.localScale = new Vector3(-1 * character.transform.localScale.x, character.transform.localScale.y, 1);
@@ -101,7 +104,6 @@ public class Character : MonoBehaviour
             }
             else if (horizontal < 0)
             {
-                
                 if (character.transform.localScale.x < 0)
                 {
                     character.transform.localScale = new Vector3(character.transform.localScale.x, character.transform.localScale.y, 1);
@@ -132,5 +134,15 @@ public class Character : MonoBehaviour
         {
             oneTimeJump = true;
         }
+    }
+    public void PlayCharacterAttack()
+    {
+
+        audioSource.clip = characterAttackClip;
+        PlaySound();
+    }
+    private void PlaySound()
+    {
+        audioSource.Play();
     }
 }

@@ -9,8 +9,10 @@ public class MenuScript : MonoBehaviour
     [SerializeField] private Canvas quitMenu;
     [SerializeField] private Button startText;
     [SerializeField] private Button exitText;
+    [SerializeField] private Text scoreText;
     void Start()
     {
+        scoreText.text = ""+PlayerPrefs.GetInt("HighScore");
         quitMenu = quitMenu.GetComponent<Canvas>();
         startText = startText.GetComponent<Button>();
         exitText = exitText.GetComponent<Button>();
@@ -18,23 +20,26 @@ public class MenuScript : MonoBehaviour
     }
     public void ExitPress()
     {
+        MusicManager.Instance.PlayButtonClip();
         quitMenu.enabled = true;
         startText.enabled = false;
         exitText.enabled = false;
     }
     public void NoPress()
     {
+        MusicManager.Instance.PlayButtonClip();
         quitMenu.enabled = false;
         startText.enabled = true;
         exitText.enabled = true;
     }
     public void StartLevel()
     {
-        Application.LoadLevel(1);
-        //SceneManager.LoadScene("1");
+        MusicManager.Instance.PlayButtonClip();
+        RouteManager.Instance.LoadMarketMenu();
     }
     public void ExitGame()
     {
+        MusicManager.Instance.PlayButtonClip();
         Application.Quit();
     }
 }

@@ -47,11 +47,20 @@ public class MarketScript : MonoBehaviour
     }
     public void StartGame()
     {
+        MusicManager.Instance.PlayButtonClip();
         if (mapid != 0)
         {
             if (characterid != 0)
             {
-                Application.LoadLevel(mapid);
+                if(mapid==2)
+                {
+                    RouteManager.Instance.LoadFirstMap();
+                }
+               else if (mapid == 3)
+                {
+                    RouteManager.Instance.LoadSecondMap();
+                }
+               // Application.LoadLevel(mapid);
                 PlayerPrefs.SetInt("SelectCharacter", characterid);
             }
         }
@@ -59,11 +68,14 @@ public class MarketScript : MonoBehaviour
 
     public void GoMainMenu()
     {
-        Application.LoadLevel(0);
+        MusicManager.Instance.PlayButtonClip();
+        // Application.LoadLevel(0);
+        RouteManager.Instance.LoadMainMenu();
     }
     public void YesPress()
     {
-        if(money>=valueOfLock)
+        MusicManager.Instance.PlayButtonClip();
+        if (money>=valueOfLock)
         {
             choosenLock.SetActive(false);
             money -= valueOfLock;
@@ -81,10 +93,12 @@ public class MarketScript : MonoBehaviour
     }
     public void NoPress()
     {
+        MusicManager.Instance.PlayButtonClip();
         areYouSure.enabled = false;
     }
     public void close()
     {
+        MusicManager.Instance.PlayButtonClip();
         youHaveNoMoney.enabled = false;
     }
     private void Update()
@@ -95,12 +109,14 @@ public class MarketScript : MonoBehaviour
     }
     public void Lock(GameObject takenLock)
     {
+        MusicManager.Instance.PlayButtonClip();
         choosenLock = takenLock;
         areYouSure.enabled = true;
         valueOfLock = takenLock.GetComponent<Lock>().value;
     }
     public void ChooseMap(GameObject choosenMap)
     {
+        MusicManager.Instance.PlayButtonClip();
         GameObject[] maps;
         maps = GameObject.FindGameObjectsWithTag("Maps");
         foreach (GameObject map in maps)
@@ -135,6 +151,7 @@ public class MarketScript : MonoBehaviour
     }
     public void ChooseCharacter(GameObject choosenCharacter)
     {
+        MusicManager.Instance.PlayButtonClip();
         GameObject[] characters;
         characters = GameObject.FindGameObjectsWithTag("Characters");
         foreach (GameObject character in characters)

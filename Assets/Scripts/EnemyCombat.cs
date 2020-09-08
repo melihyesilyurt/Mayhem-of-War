@@ -16,16 +16,19 @@ public class EnemyCombat : MonoBehaviour
     [SerializeField] private int spendedStamina;
     [SerializeField] private int CriticalPossiblity;
     private Animator animator;
+    private Enemy enemy;
     void Start()
     {
         rigibody = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         status = GetComponent<EnemyStatus>();
+        enemy = GetComponent<Enemy>();
     }
     public void Attack()
     {
         if (status.stamina > spendedStamina)
         {
+            enemy.PlayEnemyAttack();
             animator.SetTrigger(isAttacking);
             status.stamina = status.stamina - spendedStamina;
             Collider2D[] hitCharacter = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);

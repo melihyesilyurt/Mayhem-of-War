@@ -7,6 +7,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -8191112726467940158, guid: 24ae72b7a4d903a4da4cd905e3a1e127,
+        type: 3}
+      propertyPath: characterDeathClip
+      value: 
+      objectReference: {fileID: 8300000, guid: e43279ed80ddc2342871ffb77141f419, type: 3}
     - target: {fileID: 1360571902762198693, guid: 24ae72b7a4d903a4da4cd905e3a1e127,
         type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.size
@@ -25,12 +30,12 @@ PrefabInstance:
     - target: {fileID: 1360571902762198693, guid: 24ae72b7a4d903a4da4cd905e3a1e127,
         type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
-      value: 1.8
+      value: 0.47
       objectReference: {fileID: 0}
     - target: {fileID: 1360571902762198693, guid: 24ae72b7a4d903a4da4cd905e3a1e127,
         type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.y
-      value: 1.8
+      value: 0.51
       objectReference: {fileID: 0}
     - target: {fileID: 1360571902762198693, guid: 24ae72b7a4d903a4da4cd905e3a1e127,
         type: 3}

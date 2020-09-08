@@ -8,6 +8,7 @@ public class PlayerCombat : MonoBehaviour
     private string isWaiting = "Iswaiting";
     public LayerMask enemyLayers;
     private CharacterStatus status;
+    private Character character;
     public Transform attackPoint;
     public float attackRange;
     private Animator animator;
@@ -18,13 +19,14 @@ public class PlayerCombat : MonoBehaviour
     [SerializeField] private int knockback;
     void Start()
     {
+        character = GetComponent<Character>();
         animator = GetComponent<Animator>();
         status = GetComponent<CharacterStatus>();
     }
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Mouse0))
-        {
+        {    
             Attack();
         }
         if (Input.GetKeyUp(KeyCode.Mouse0))
@@ -36,6 +38,7 @@ public class PlayerCombat : MonoBehaviour
     {
         if (status.stamina > spendedStamina)
         {
+            character.PlayCharacterAttack();
             animator.SetTrigger(isAttacking);
             status.stamina = status.stamina - spendedStamina;
             Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
