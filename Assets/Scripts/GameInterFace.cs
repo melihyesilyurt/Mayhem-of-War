@@ -25,8 +25,20 @@ public class GameInterFace : MonoBehaviour
     public Text scoreTextPanel;
     public Text HighScoreTextPanel;
     private AudioSource audioSource;
+    private int characterid;
+    [SerializeField] private Text avatarName;
+    [SerializeField] private Image avatarPhoto;
+    [SerializeField] private Sprite oldKnightPhoto;
+    [SerializeField] private Sprite youngWarriorPhoto;
+    [SerializeField] private Sprite femaleKnightPhoto;
+    [SerializeField] private Sprite aloneSamuraiPhoto;
+    [SerializeField] private Sprite kingPhoto;
+    public Image healthBar;
+    public Image staminaBar;
     void Start()
     {
+        characterid = PlayerPrefs.GetInt("SelectCharacter");
+        Debug.Log(characterid);
         Instance = GetComponent<GameInterFace>();
         gameOverMenu.enabled = false;
         pauseMenu.enabled = false;
@@ -54,6 +66,7 @@ public class GameInterFace : MonoBehaviour
             voiceOffButton.SetActive(true);
             voiceOnButton.SetActive(false);
         }
+        CharacterUI();
     }
     public void OpenPauseMenu()
     {
@@ -143,5 +156,33 @@ public class GameInterFace : MonoBehaviour
         audioSource.Stop();
         gameOverMenu.enabled = true;
         Time.timeScale = 0;
+    }
+    private void CharacterUI()
+    {
+        if (characterid == 1)
+        {
+            avatarName.text = "Old Knight";
+            avatarPhoto.sprite = oldKnightPhoto;
+        }
+        else if (characterid == 2)
+        {
+            avatarName.text = "Young Warrior";
+            avatarPhoto.sprite = youngWarriorPhoto;
+        }
+        else if (characterid == 3)
+        {
+            avatarName.text = "Female Knight";
+            avatarPhoto.sprite = femaleKnightPhoto;
+        }
+        else if (characterid == 4)
+        {
+            avatarName.text = "Alone Samurai";
+            avatarPhoto.sprite = aloneSamuraiPhoto;
+        }
+        else if (characterid == 5)
+        {
+            avatarName.text = "King";
+            avatarPhoto.sprite = kingPhoto;
+        }
     }
 }
