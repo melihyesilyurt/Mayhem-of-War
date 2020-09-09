@@ -39,6 +39,16 @@ public class MusicManager : MonoBehaviour
     }
     private void PlaySound()
     {
-        audioSource.Play();
+        if (PlayerPrefs.GetInt("Voice") == 0)
+        {
+            audioSource.Play();
+           // Debug.Log("Musicon");
+        }
+        else if (PlayerPrefs.GetInt("Voice") == -1)
+        {
+            audioSource.Stop();
+           // Debug.Log("Musicoff");
+        }
+        //audioSource.Play();
     }
 }

@@ -593,6 +593,7 @@ GameObject:
   - component: {fileID: 377160805}
   - component: {fileID: 377160806}
   - component: {fileID: 377160807}
+  - component: {fileID: 377160808}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -793,6 +794,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &377160808
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 377160801}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 393ff9c508539bd47a5375aed754c9ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &393058811 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2341735141243917153, guid: c27748d63646716448a114ad44e0144b,
@@ -2136,6 +2149,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Map 5
       objectReference: {fileID: 0}
+    - target: {fileID: 9082634000692688902, guid: 2a06059ecf2c37f44b5861a4517105a7,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2a06059ecf2c37f44b5861a4517105a7, type: 3}
 --- !u!224 &1122869718 stripped
@@ -2427,6 +2445,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Map 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7504820465996593216, guid: 6bd596fb6c08cd04a8cd0b744df0bf7c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7820263935920722824, guid: 6bd596fb6c08cd04a8cd0b744df0bf7c,
         type: 3}
@@ -3694,6 +3717,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Map 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5974205744772093822, guid: 3c0aaab4b669580419e46752fabb2dea,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6217771887966665910, guid: 3c0aaab4b669580419e46752fabb2dea,
         type: 3}

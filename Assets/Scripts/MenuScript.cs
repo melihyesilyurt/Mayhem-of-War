@@ -9,10 +9,8 @@ public class MenuScript : MonoBehaviour
     [SerializeField] private Canvas quitMenu;
     [SerializeField] private Button startText;
     [SerializeField] private Button exitText;
-    [SerializeField] private Text scoreText;
     void Start()
     {
-        scoreText.text = ""+PlayerPrefs.GetInt("HighScore");
         quitMenu = quitMenu.GetComponent<Canvas>();
         startText = startText.GetComponent<Button>();
         exitText = exitText.GetComponent<Button>();

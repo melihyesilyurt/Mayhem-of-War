@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ScoreController : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class ScoreController : MonoBehaviour
     public int comboCount;
     private int comboScore;
     private int highScore;
+    private GameInterFace gameInterFace;
     public int ScorePoint
     {
         get { return scorePoint; }
@@ -25,15 +27,20 @@ public class ScoreController : MonoBehaviour
     void Awake()
     {
         Instance = GetComponent<ScoreController>();
+        highScore = PlayerPrefs.GetInt("HighScore");
     }
     private void Update()
     {
-        if(scorePoint>highScore)
+        GetComponent<GameInterFace>().scoreText.text="Score: " + scorePoint;
+        GetComponent<GameInterFace>().scoreTextPanel.text = "Score: " + scorePoint; 
+        
+        if (scorePoint>highScore)
         {
             highScore = scorePoint;
             PlayerPrefs.SetInt("HighScore", HighScore);
         }
         Score();
+        GetComponent<GameInterFace>().HighScoreTextPanel.text = "HighScore: " + PlayerPrefs.GetInt("HighScore");
     }
     private void Score()
     {

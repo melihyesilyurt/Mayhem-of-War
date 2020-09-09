@@ -16,4 +16,8 @@ public class GoldController : MonoBehaviour
         goldCoin = PlayerPrefs.GetInt("GoldCoin");
         Instance = GetComponent<GoldController>();
     }
+   public void SetGoldText(int goldText)
+    {
+        GetComponent<GameInterFace>().goldText.text = "Gold: " + goldText;
+    }
 }

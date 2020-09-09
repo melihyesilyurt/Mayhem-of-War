@@ -73,9 +73,11 @@
     <Compile Include="Assets\Scripts\EnemyCombat.cs" />
     <Compile Include="Assets\Scripts\EnemyRanged.cs" />
     <Compile Include="Assets\Scripts\EnemyStatus.cs" />
+    <Compile Include="Assets\Scripts\GameInterFace.cs" />
     <Compile Include="Assets\Scripts\GoldController.cs" />
     <Compile Include="Assets\Scripts\LevelController.cs" />
     <Compile Include="Assets\Scripts\Lock.cs" />
+    <Compile Include="Assets\Scripts\MainMenuMusic.cs" />
     <Compile Include="Assets\Scripts\MarketScript.cs" />
     <Compile Include="Assets\Scripts\MenuScript.cs" />
     <Compile Include="Assets\Scripts\MusicManager.cs" />

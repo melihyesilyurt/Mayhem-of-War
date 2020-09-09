@@ -193,8 +193,7 @@ MonoBehaviour:
   horizontal: 0
   oneTimeJump: 1
   characterAttackClip: {fileID: 8300000, guid: e6bd64126ed647b4995bc3a053add0bc, type: 3}
-  characterFootStepClip: {fileID: 8300000, guid: 415d086c35c156f448f3f7731612baa4,
-    type: 3}
+  Camera: {fileID: 3520596180433668363, guid: d4280d400f93c4840818d5c2bb439426, type: 3}
 --- !u!60 &1360571902762198693
 PolygonCollider2D:
   m_ObjectHideFlags: 0

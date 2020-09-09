@@ -65,6 +65,7 @@ public class Character : MonoBehaviour
             if (1.75f < deadTime)
             {
                 MusicManager.Instance.PlayEndMusicClip();
+                GameInterFace.Instance.OpenGameOverMenu();
                 Destroy(gameObject);               
                 money= PlayerPrefs.GetInt("GoldCoin")+characterStatus.goldAmount;
                // GoldController.Instance.GoldCoin += characterStatus.goldAmount;
@@ -143,6 +144,16 @@ public class Character : MonoBehaviour
     }
     private void PlaySound()
     {
-        audioSource.Play();
+        if (PlayerPrefs.GetInt("Voice") == 0)
+        {
+            audioSource.Play();
+            // Debug.Log("Musicon");
+        }
+        else if (PlayerPrefs.GetInt("Voice") == -1)
+        {
+            audioSource.Stop();
+            // Debug.Log("Musicoff");
+        }
+        //audioSource.Play();
     }
 }

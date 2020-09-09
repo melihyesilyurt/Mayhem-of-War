@@ -20,6 +20,7 @@ public class CharacterStatus : MonoBehaviour
         {
             stamina += (staminaRegeneration * Time.deltaTime);
         }
+        GoldController.Instance.SetGoldText(goldAmount);
     }
     public void OnCollisionEnter2D(Collision2D collision)
     {
