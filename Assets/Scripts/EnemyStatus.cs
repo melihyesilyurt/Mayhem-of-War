@@ -12,26 +12,30 @@ public class EnemyStatus : MonoBehaviour
     private Transform position;
     private int spawnGold=0;
     private Enemy enemy;
-
+    private float healthFull;
+    private float staminaFull;
     private void Start()
     {
         gold = LevelController.Instance.goldCoin;
         position = GetComponent<Transform>();
         enemy = GetComponent<Enemy>();
+        healthFull = health;
+        staminaFull = stamina;
     }
     void Update()
     {
-        if (health < 100)
+        if (health < healthFull)
         {
             health += (healthRegeneration * Time.deltaTime);
         }
-        if (stamina < 100)
+        if (stamina < staminaFull)
         {
             stamina += (staminaRegeneration * Time.deltaTime);
         }
         if (health <= 0)
         {
             spawnGold++;
+            health = -1000;
         }
         if(spawnGold==1)
         {

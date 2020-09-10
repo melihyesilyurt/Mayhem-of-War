@@ -11,6 +11,10 @@ PrefabInstance:
       propertyPath: attackSpeed
       value: 1.8
       objectReference: {fileID: 0}
+    - target: {fileID: 1666380593, guid: 739321165f070994c89a63c0afac204f, type: 3}
+      propertyPath: attackDistance
+      value: 0.34
+      objectReference: {fileID: 0}
     - target: {fileID: 1604376653982976305, guid: 739321165f070994c89a63c0afac204f,
         type: 3}
       propertyPath: health

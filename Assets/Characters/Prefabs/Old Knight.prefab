@@ -335,12 +335,12 @@ PrefabInstance:
     - target: {fileID: 5570011572515273263, guid: 24ae72b7a4d903a4da4cd905e3a1e127,
         type: 3}
       propertyPath: damage
-      value: 20
+      value: 23
       objectReference: {fileID: 0}
     - target: {fileID: 5570011572515273263, guid: 24ae72b7a4d903a4da4cd905e3a1e127,
         type: 3}
       propertyPath: spendedStamina
-      value: 20
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 5570011572515273263, guid: 24ae72b7a4d903a4da4cd905e3a1e127,
         type: 3}

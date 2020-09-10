@@ -1,0 +1,334 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3984424813632041179
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 716393471787656801}
+  - component: {fileID: 367545266325904268}
+  - component: {fileID: 7992266419503674532}
+  - component: {fileID: 9213784629579756289}
+  - component: {fileID: 8395998460372608957}
+  - component: {fileID: 3851620907741024091}
+  - component: {fileID: 6857670313676428038}
+  - component: {fileID: 3571857156443684246}
+  - component: {fileID: 4889614321678576079}
+  - component: {fileID: 3984424813632041197}
+  m_Layer: 0
+  m_Name: Main Camera
+  m_TagString: MainCamera
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &716393471787656801
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3984424813632041179}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.82, y: -1.02, z: -10}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!20 &367545266325904268
+Camera:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3984424813632041179}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_ClearFlags: 1
+  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_projectionMatrixMode: 1
+  m_GateFitMode: 2
+  m_FOVAxisMode: 0
+  m_SensorSize: {x: 36, y: 24}
+  m_LensShift: {x: 0, y: 0}
+  m_FocalLength: 50
+  m_NormalizedViewPortRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+  near clip plane: 0.3
+  far clip plane: 1000
+  field of view: 60
+  orthographic: 1
+  orthographic size: 1.5532684
+  m_Depth: -1
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RenderingPath: -1
+  m_TargetTexture: {fileID: 0}
+  m_TargetDisplay: 0
+  m_TargetEye: 3
+  m_HDR: 1
+  m_AllowMSAA: 1
+  m_AllowDynamicResolution: 0
+  m_ForceIntoRT: 0
+  m_OcclusionCulling: 1
+  m_StereoConvergence: 10
+  m_StereoSeparation: 0.022
+--- !u!81 &7992266419503674532
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3984424813632041179}
+  m_Enabled: 1
+--- !u!114 &9213784629579756289
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3984424813632041179}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9cb46bae130cee40b6e8468f42a7eee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  character: {fileID: 0}
+--- !u!114 &8395998460372608957
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3984424813632041179}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0ebb2a749b1a914d8e1791eeb6caad6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  character: {fileID: 0}
+  enemies:
+  - {fileID: 2898114209329162206, guid: c3d5588ae5cbc41459616149d0ca380b, type: 3}
+  - {fileID: 8177180165500665950, guid: 18073a2fcde70564a88c474cbbd659b7, type: 3}
+  - {fileID: 1860295222970773083, guid: 1caf68c7b1dd3a943ac6be05bb6dc33c, type: 3}
+  - {fileID: 5444046013606693012, guid: 17fefab3ab00d824ba7e36a76635c062, type: 3}
+  - {fileID: 3079853330458217776, guid: b27e3f577f074ab4ab4fd292c1e6e734, type: 3}
+  goldCoin: {fileID: 728824453130678295, guid: 8dbc37d20bcd4714db3d2645fd4cee8d, type: 3}
+  Spawners:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  spawnRigtNow: 1
+  archer: {fileID: 2898114209329162206, guid: c3d5588ae5cbc41459616149d0ca380b, type: 3}
+  shieldSkeleton: {fileID: 8177180165500665950, guid: 18073a2fcde70564a88c474cbbd659b7,
+    type: 3}
+  swordSkeleton: {fileID: 1860295222970773083, guid: 1caf68c7b1dd3a943ac6be05bb6dc33c,
+    type: 3}
+  traitorSoldier: {fileID: 5444046013606693012, guid: 17fefab3ab00d824ba7e36a76635c062,
+    type: 3}
+  wizard: {fileID: 3079853330458217776, guid: b27e3f577f074ab4ab4fd292c1e6e734, type: 3}
+  swordSkeletonPossibility: 23
+  shieldSkeletonPossibility: 46
+  archerPossibility: 68
+  traitorSoldierPossibility: 85
+  wizardPossibility: 100
+--- !u!114 &3851620907741024091
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3984424813632041179}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b44549b51c8f51943a5d82c22ec4f474, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyDeathCount: 0
+  comboCount: 0
+--- !u!114 &6857670313676428038
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3984424813632041179}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc257415ae834c1459c2c4d4ccb32fed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3571857156443684246
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3984424813632041179}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40e06db5df69c944f82f9e184585b706, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnPoint: {fileID: 0}
+  oldKnight: {fileID: 2318233037012817167, guid: 01e6b5a5444cbb84a9e3aaa6959a9909,
+    type: 3}
+  youngWarrior: {fileID: 7073426400426310976, guid: c1fb5773f90603947aa7fd56fb307933,
+    type: 3}
+  femaleKnight: {fileID: 7250697038621225457, guid: a7ed2fe7a6a1e134d89057a49447e1ad,
+    type: 3}
+  aloneSamurai: {fileID: 715124356329640784, guid: 040323e9a5e93c34baa71fe5d3839ba2,
+    type: 3}
+  king: {fileID: 1512221897912001200, guid: d9fe07109df82fc41ade2b35cb4cc782, type: 3}
+--- !u!82 &4889614321678576079
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3984424813632041179}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: c3ed36cccca2ce94c9608c21bf7fdd75, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 0.3
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!114 &3984424813632041197
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3984424813632041179}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63d5ea3be4e336c4b9193ca07155adb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pauseMenu: {fileID: 0}
+  pauseButton: {fileID: 0}
+  mainMenuButton: {fileID: 0}
+  settingsButton: {fileID: 0}
+  resumeButton: {fileID: 0}
+  voiceOnButton: {fileID: 0}
+  voiceOffButton: {fileID: 0}
+  musicOnButton: {fileID: 0}
+  musicOffButton: {fileID: 0}
+  settingsMenu: {fileID: 0}
+  gameOverMenu: {fileID: 0}
+  reloadButton: {fileID: 0}
+  goMainMenuButton: {fileID: 0}
+  scoreText: {fileID: 0}
+  goldText: {fileID: 0}
+  scoreTextPanel: {fileID: 0}
+  HighScoreTextPanel: {fileID: 0}
+  avatarName: {fileID: 0}
+  avatarPhoto: {fileID: 0}
+  oldKnightPhoto: {fileID: 21300000, guid: a70b3fff8c0d54e41b799a19a9a33a3f, type: 3}
+  youngWarriorPhoto: {fileID: 4723107735738678597, guid: f374107ba66790641b6b7c9d0d9a49d3,
+    type: 3}
+  femaleKnightPhoto: {fileID: 4723107735738678597, guid: fc46633b0eb321e46838bcb9ff2d4150,
+    type: 3}
+  aloneSamuraiPhoto: {fileID: 4723107735738678597, guid: 0bd97e23f8b532a4f8969605a3b00a4e,
+    type: 3}
+  kingPhoto: {fileID: 4723107735738678597, guid: 0e3502a80399d164ea01f1868f65acbf,
+    type: 3}
+  healthBar: {fileID: 0}
+  staminaBar: {fileID: 0}

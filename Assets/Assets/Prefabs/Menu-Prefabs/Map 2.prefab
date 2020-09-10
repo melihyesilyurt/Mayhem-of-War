@@ -12,6 +12,12 @@ PrefabInstance:
       propertyPath: m_Text
       value: 'Gold: 1800'
       objectReference: {fileID: 0}
+    - target: {fileID: 5057043917174168456, guid: f6b349bc2c5f2564786a29bb05cdf917,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 00fad98b0d0d77845b5f890d22b2e87f,
+        type: 3}
     - target: {fileID: 6000003688040591344, guid: f6b349bc2c5f2564786a29bb05cdf917,
         type: 3}
       propertyPath: m_LocalPosition.x

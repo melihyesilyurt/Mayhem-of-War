@@ -1,11 +1,11 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.LowLevel;
 
 public class Character : MonoBehaviour
 {
-    public GameObject character; 
+    public GameObject character;
     private Rigidbody2D rigibody;
     private CapsuleCollider2D footCollider;
     public float horizontal = 0;
@@ -31,7 +31,8 @@ public class Character : MonoBehaviour
     }
     void Update()
     {
-        if (characterStatus.health>0) {
+        if (characterStatus.health > 0)
+        {
             if (Input.GetKeyDown(KeyCode.UpArrow))
             {
                 if (oneTimeJump)
@@ -70,19 +71,17 @@ public class Character : MonoBehaviour
                 MusicManager.Instance.PlayEndMusicClip();
                 GameInterFace.Instance.OpenGameOverMenu();
                 Destroy(gameObject);
-                
-                money= PlayerPrefs.GetInt("GoldCoin")+characterStatus.goldAmount;
-               // GoldController.Instance.GoldCoin += characterStatus.goldAmount;
+                money = PlayerPrefs.GetInt("GoldCoin") + characterStatus.goldAmount;
                 characterStatus.goldAmount = 0;
-                PlayerPrefs.SetInt("GoldCoin",money);
-               Debug.Log("Your Money: "+ PlayerPrefs.GetInt("GoldCoin"));
+                PlayerPrefs.SetInt("GoldCoin", money);
+                Debug.Log("Your Money: " + PlayerPrefs.GetInt("GoldCoin"));
                 Time.timeScale = 0;
             }
         }
-    } 
+    }
     public void CharacterMove()
     {
-        
+
         horizontal = Input.GetAxisRaw("Horizontal");
         rigibody.velocity = new Vector3(horizontal * 3, rigibody.velocity.y, 0);
     }
@@ -90,6 +89,7 @@ public class Character : MonoBehaviour
     {
         if (oneTimeJump)
         {
+            TurnCharacter();
             if (horizontal == 0)
             {
                 animator.SetBool(isWalking, false);
@@ -97,26 +97,10 @@ public class Character : MonoBehaviour
             }
             else if (horizontal > 0)
             {
-                if (character.transform.localScale.x < 0)
-                {
-                    character.transform.localScale = new Vector3(-1 * character.transform.localScale.x, character.transform.localScale.y, 1);
-                }
-                else
-                {
-                    character.transform.localScale = new Vector3(character.transform.localScale.x, character.transform.localScale.y, 1);
-                }
                 animator.SetBool(isWalking, true);
             }
             else if (horizontal < 0)
             {
-                if (character.transform.localScale.x < 0)
-                {
-                    character.transform.localScale = new Vector3(character.transform.localScale.x, character.transform.localScale.y, 1);
-                }
-                else
-                {
-                    character.transform.localScale = new Vector3(-1 * character.transform.localScale.x, character.transform.localScale.y, 1);
-                }
                 animator.SetBool(isWalking, true);
             }
         }
@@ -125,41 +109,19 @@ public class Character : MonoBehaviour
             if (rigibody.velocity.y > 0)
             {
                 animator.SetBool(isJumping, true);
-                if (horizontal > 0)
-                {
-                    if (character.transform.localScale.x < 0)
-                    {
-                        character.transform.localScale = new Vector3(-1 * character.transform.localScale.x, character.transform.localScale.y, 1);
-                    }
-                    else
-                    {
-                        character.transform.localScale = new Vector3(character.transform.localScale.x, character.transform.localScale.y, 1);
-                    }
-                    animator.SetBool(isWalking, true);
-                }
-                else if (horizontal < 0)
-                {
-                    if (character.transform.localScale.x < 0)
-                    {
-                        character.transform.localScale = new Vector3(character.transform.localScale.x, character.transform.localScale.y, 1);
-                    }
-                    else
-                    {
-                        character.transform.localScale = new Vector3(-1 * character.transform.localScale.x, character.transform.localScale.y, 1);
-                    }
-                    animator.SetBool(isWalking, true);
-                }
+                TurnCharacter();
             }
             else
             {
                 animator.SetBool(isJumping, false);
+                TurnCharacter();
             }
         }
     }
     public void OnCollisionEnter2D(Collision2D collision)
     {
         animator.SetBool(isJumping, false);
-        if(collision.otherCollider.GetType()==footCollider.GetType())
+        if (collision.otherCollider.GetType() == footCollider.GetType())
         {
             oneTimeJump = true;
         }
@@ -175,13 +137,35 @@ public class Character : MonoBehaviour
         if (PlayerPrefs.GetInt("Voice") == 0)
         {
             audioSource.Play();
-            // Debug.Log("Musicon");
         }
         else if (PlayerPrefs.GetInt("Voice") == -1)
         {
             audioSource.Stop();
-            // Debug.Log("Musicoff");
         }
-        //audioSource.Play();
+    }
+    private void TurnCharacter()
+    {
+        if (horizontal > 0)
+        {
+            if (character.transform.localScale.x < 0)
+            {
+                character.transform.localScale = new Vector3(-1 * character.transform.localScale.x, character.transform.localScale.y, 1);
+            }
+            else
+            {
+                character.transform.localScale = new Vector3(character.transform.localScale.x, character.transform.localScale.y, 1);
+            }
+        }
+        else if (horizontal < 0)
+        {
+            if (character.transform.localScale.x < 0)
+            {
+                character.transform.localScale = new Vector3(character.transform.localScale.x, character.transform.localScale.y, 1);
+            }
+            else
+            {
+                character.transform.localScale = new Vector3(-1 * character.transform.localScale.x, character.transform.localScale.y, 1);
+            }
+        }
     }
 }

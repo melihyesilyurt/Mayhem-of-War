@@ -19,11 +19,11 @@ public class CharacterStatus : MonoBehaviour
     }
     void Update()
     {
-        if(health<100)
+        if(health< healthFull)
         {
             health += (healthRegeneration * Time.deltaTime);
         }
-        if(stamina<100)
+        if(stamina< staminaFull)
         {
             stamina += (staminaRegeneration * Time.deltaTime);
         }

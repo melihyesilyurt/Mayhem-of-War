@@ -22,9 +22,9 @@ PrefabInstance:
         Knockback: 40
 
         Attack:
-        20
+        23
 
-        Stamina Per Attack: 20
+        Stamina Per Attack: 10
 
         Critic: %5
 

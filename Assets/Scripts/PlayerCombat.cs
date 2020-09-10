@@ -25,11 +25,19 @@ public class PlayerCombat : MonoBehaviour
     }
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        /*if (Input.GetKeyDown(KeyCode.Mouse0))
         {    
             Attack();
         }
         if (Input.GetKeyUp(KeyCode.Mouse0))
+        {
+            animator.SetTrigger(isWaiting);
+        }*/
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            Attack();
+        }
+        if (Input.GetKeyUp(KeyCode.Space))
         {
             animator.SetTrigger(isWaiting);
         }
