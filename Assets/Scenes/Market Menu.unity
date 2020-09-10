@@ -399,7 +399,7 @@ PrefabInstance:
     - target: {fileID: 2325787028292457202, guid: 1196818ceb44d8f4cbce19e22b5045f3,
         type: 3}
       propertyPath: value
-      value: 1000
+      value: 8000
       objectReference: {fileID: 0}
     - target: {fileID: 2477899863783673718, guid: 1196818ceb44d8f4cbce19e22b5045f3,
         type: 3}
@@ -435,6 +435,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Female Knight
+      objectReference: {fileID: 0}
+    - target: {fileID: 4683382667410364874, guid: 1196818ceb44d8f4cbce19e22b5045f3,
+        type: 3}
+      propertyPath: m_Text
+      value: 'Gold: 8000'
       objectReference: {fileID: 0}
     - target: {fileID: 4683382667590903224, guid: 1196818ceb44d8f4cbce19e22b5045f3,
         type: 3}
@@ -852,7 +857,7 @@ PrefabInstance:
     - target: {fileID: 3339913317633287893, guid: c27748d63646716448a114ad44e0144b,
         type: 3}
       propertyPath: value
-      value: 1500
+      value: 16000
       objectReference: {fileID: 0}
     - target: {fileID: 4900507204064339126, guid: c27748d63646716448a114ad44e0144b,
         type: 3}
@@ -994,6 +999,11 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 5684013549903605229, guid: c27748d63646716448a114ad44e0144b,
+        type: 3}
+      propertyPath: m_Text
+      value: 'Gold: 16000'
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c27748d63646716448a114ad44e0144b, type: 3}
 --- !u!224 &422762884 stripped
@@ -1068,6 +1078,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Old Knight
+      objectReference: {fileID: 0}
+    - target: {fileID: 8772721944504048055, guid: a8f957adbf96fc048836ef3559280175,
+        type: 3}
+      propertyPath: m_Text
+      value: 'Gold: FREE'
       objectReference: {fileID: 0}
     - target: {fileID: 8772721944676885956, guid: a8f957adbf96fc048836ef3559280175,
         type: 3}
@@ -1389,12 +1404,12 @@ PrefabInstance:
     - target: {fileID: 3330312932417086811, guid: 15c805aaedbc539439d1494d2ab8fce4,
         type: 3}
       propertyPath: value
-      value: 500
+      value: 1800
       objectReference: {fileID: 0}
     - target: {fileID: 6710940971121734953, guid: 15c805aaedbc539439d1494d2ab8fce4,
         type: 3}
       propertyPath: m_Text
-      value: 'Gold: 500'
+      value: 'Gold: 1800'
       objectReference: {fileID: 0}
     - target: {fileID: 7277209141713512371, guid: 15c805aaedbc539439d1494d2ab8fce4,
         type: 3}
@@ -2680,6 +2695,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1458392421}
     m_Modifications:
+    - target: {fileID: 810987224871383377, guid: d6e5be8d17862c54bb40393b73d94eb1,
+        type: 3}
+      propertyPath: m_Text
+      value: 'Gold: FREE'
+      objectReference: {fileID: 0}
     - target: {fileID: 2781892848756344757, guid: d6e5be8d17862c54bb40393b73d94eb1,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -2916,7 +2936,7 @@ PrefabInstance:
     - target: {fileID: 4542486498602816785, guid: 8ce16efb57910e34c8261991acb48ef5,
         type: 3}
       propertyPath: value
-      value: 2000
+      value: 25000
       objectReference: {fileID: 0}
     - target: {fileID: 6147975645426423666, guid: 8ce16efb57910e34c8261991acb48ef5,
         type: 3}
@@ -2947,6 +2967,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: King
+      objectReference: {fileID: 0}
+    - target: {fileID: 6895655503852510761, guid: 8ce16efb57910e34c8261991acb48ef5,
+        type: 3}
+      propertyPath: m_Text
+      value: 'Gold: 25000'
       objectReference: {fileID: 0}
     - target: {fileID: 6895655504217236058, guid: 8ce16efb57910e34c8261991acb48ef5,
         type: 3}
@@ -3479,7 +3504,7 @@ PrefabInstance:
     - target: {fileID: 2534875979191973605, guid: f758b3d67162c8a438edfd6bedc1be39,
         type: 3}
       propertyPath: value
-      value: 500
+      value: 2000
       objectReference: {fileID: 0}
     - target: {fileID: 3245954616418632529, guid: f758b3d67162c8a438edfd6bedc1be39,
         type: 3}
@@ -3600,6 +3625,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4870041598295703005, guid: f758b3d67162c8a438edfd6bedc1be39,
+        type: 3}
+      propertyPath: m_Text
+      value: 'Gold: 2000'
       objectReference: {fileID: 0}
     - target: {fileID: 5293533191300707462, guid: f758b3d67162c8a438edfd6bedc1be39,
         type: 3}

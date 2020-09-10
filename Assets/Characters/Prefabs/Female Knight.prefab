@@ -242,6 +242,31 @@ PrefabInstance:
       propertyPath: attackRange
       value: 0.26
       objectReference: {fileID: 0}
+    - target: {fileID: 5570011572515273263, guid: 24ae72b7a4d903a4da4cd905e3a1e127,
+        type: 3}
+      propertyPath: damage
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 5570011572515273263, guid: 24ae72b7a4d903a4da4cd905e3a1e127,
+        type: 3}
+      propertyPath: missPossiblity
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 5570011572515273263, guid: 24ae72b7a4d903a4da4cd905e3a1e127,
+        type: 3}
+      propertyPath: CriticalPossiblity
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5570011572515273263, guid: 24ae72b7a4d903a4da4cd905e3a1e127,
+        type: 3}
+      propertyPath: spendedStamina
+      value: 22
+      objectReference: {fileID: 0}
+    - target: {fileID: 5570011572515273263, guid: 24ae72b7a4d903a4da4cd905e3a1e127,
+        type: 3}
+      propertyPath: knockback
+      value: 60
+      objectReference: {fileID: 0}
     - target: {fileID: 6748686495159534426, guid: 24ae72b7a4d903a4da4cd905e3a1e127,
         type: 3}
       propertyPath: m_Offset.x
@@ -357,6 +382,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Female Knight
+      objectReference: {fileID: 0}
+    - target: {fileID: 9090247263419523042, guid: 24ae72b7a4d903a4da4cd905e3a1e127,
+        type: 3}
+      propertyPath: health
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 9090247263419523042, guid: 24ae72b7a4d903a4da4cd905e3a1e127,
+        type: 3}
+      propertyPath: stamina
+      value: 130
+      objectReference: {fileID: 0}
+    - target: {fileID: 9090247263419523042, guid: 24ae72b7a4d903a4da4cd905e3a1e127,
+        type: 3}
+      propertyPath: healthRegeneration
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9090247263419523042, guid: 24ae72b7a4d903a4da4cd905e3a1e127,
+        type: 3}
+      propertyPath: staminaRegeneration
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 24ae72b7a4d903a4da4cd905e3a1e127, type: 3}

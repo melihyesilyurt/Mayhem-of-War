@@ -7,6 +7,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2250298826860661107, guid: f6b349bc2c5f2564786a29bb05cdf917,
+        type: 3}
+      propertyPath: m_Text
+      value: 'Gold: 1800'
+      objectReference: {fileID: 0}
     - target: {fileID: 6000003688040591344, guid: f6b349bc2c5f2564786a29bb05cdf917,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -115,7 +120,12 @@ PrefabInstance:
     - target: {fileID: 7325155212735402110, guid: f6b349bc2c5f2564786a29bb05cdf917,
         type: 3}
       propertyPath: m_Name
-      value: Map
+      value: Map 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7795452134531356929, guid: f6b349bc2c5f2564786a29bb05cdf917,
+        type: 3}
+      propertyPath: value
+      value: 1800
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f6b349bc2c5f2564786a29bb05cdf917, type: 3}

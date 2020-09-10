@@ -9,7 +9,27 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1666380593, guid: 739321165f070994c89a63c0afac204f, type: 3}
       propertyPath: attackSpeed
-      value: 3
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1604376653982976305, guid: 739321165f070994c89a63c0afac204f,
+        type: 3}
+      propertyPath: health
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 1604376653982976305, guid: 739321165f070994c89a63c0afac204f,
+        type: 3}
+      propertyPath: stamina
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 1604376653982976305, guid: 739321165f070994c89a63c0afac204f,
+        type: 3}
+      propertyPath: healthRegeneration
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1604376653982976305, guid: 739321165f070994c89a63c0afac204f,
+        type: 3}
+      propertyPath: staminaRegeneration
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1710755439541085811, guid: 739321165f070994c89a63c0afac204f,
         type: 3}
@@ -320,7 +340,7 @@ PrefabInstance:
     - target: {fileID: 5737577300643245467, guid: 739321165f070994c89a63c0afac204f,
         type: 3}
       propertyPath: damage
-      value: 20
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 5737577300643245467, guid: 739321165f070994c89a63c0afac204f,
         type: 3}

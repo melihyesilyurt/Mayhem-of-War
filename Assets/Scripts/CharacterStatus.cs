@@ -6,10 +6,17 @@ public class CharacterStatus : MonoBehaviour
 {
     public float health;
     public float stamina;
+    private float healthFull;
+    private float staminaFull;
     [SerializeField]private int healthRegeneration;
     [SerializeField]private int staminaRegeneration;
     public int goldAmount;
 
+    private void Start()
+    {
+        healthFull = health;
+        staminaFull = stamina;
+    }
     void Update()
     {
         if(health<100)
@@ -20,8 +27,8 @@ public class CharacterStatus : MonoBehaviour
         {
             stamina += (staminaRegeneration * Time.deltaTime);
         }
-        GameInterFace.Instance.healthBar.fillAmount = health/100;
-        GameInterFace.Instance.staminaBar.fillAmount = stamina/100;
+        GameInterFace.Instance.healthBar.fillAmount = health/healthFull;
+        GameInterFace.Instance.staminaBar.fillAmount = stamina/staminaFull;
         GoldController.Instance.SetGoldText(goldAmount);
     }
     public void OnCollisionEnter2D(Collision2D collision)

@@ -12,6 +12,29 @@ PrefabInstance:
       propertyPath: m_TargetGraphic
       value: 
       objectReference: {fileID: 4021132490961844865}
+    - target: {fileID: 3278467767874328554, guid: c722b3813df0f2a4d9fc317ceff9979b,
+        type: 3}
+      propertyPath: m_Text
+      value: 'Health: 125
+
+        Stamina: 115
+
+        Knockback: 50
+
+        Attack:
+        25
+
+        Stamina Per Attack: 21
+
+        Critic: %10
+
+        Miss: %16
+
+        Stamina
+        regeneration: +4
+
+        Health regeneration: +4'
+      objectReference: {fileID: 0}
     - target: {fileID: 3278467769148949643, guid: c722b3813df0f2a4d9fc317ceff9979b,
         type: 3}
       propertyPath: m_Text

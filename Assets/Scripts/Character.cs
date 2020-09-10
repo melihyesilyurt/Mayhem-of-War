@@ -20,6 +20,7 @@ public class Character : MonoBehaviour
     private int money;
     [SerializeField] private AudioClip characterAttackClip;
     private AudioSource audioSource;
+    [SerializeField] private GameObject attackArea;
     void Start()
     {
         rigibody = GetComponent<Rigidbody2D>();
@@ -59,6 +60,8 @@ public class Character : MonoBehaviour
                 oneTimeDead = false;
             }
             rigibody.constraints = RigidbodyConstraints2D.FreezePosition;
+            Destroy(attackArea);
+            Destroy(audioSource);
             GetComponent<CapsuleCollider2D>().isTrigger = true;
             GetComponent<PolygonCollider2D>().isTrigger = true;
             deadTime += (1 * Time.deltaTime);
@@ -66,7 +69,8 @@ public class Character : MonoBehaviour
             {
                 MusicManager.Instance.PlayEndMusicClip();
                 GameInterFace.Instance.OpenGameOverMenu();
-                Destroy(gameObject);               
+                Destroy(gameObject);
+                
                 money= PlayerPrefs.GetInt("GoldCoin")+characterStatus.goldAmount;
                // GoldController.Instance.GoldCoin += characterStatus.goldAmount;
                 characterStatus.goldAmount = 0;
@@ -121,6 +125,30 @@ public class Character : MonoBehaviour
             if (rigibody.velocity.y > 0)
             {
                 animator.SetBool(isJumping, true);
+                if (horizontal > 0)
+                {
+                    if (character.transform.localScale.x < 0)
+                    {
+                        character.transform.localScale = new Vector3(-1 * character.transform.localScale.x, character.transform.localScale.y, 1);
+                    }
+                    else
+                    {
+                        character.transform.localScale = new Vector3(character.transform.localScale.x, character.transform.localScale.y, 1);
+                    }
+                    animator.SetBool(isWalking, true);
+                }
+                else if (horizontal < 0)
+                {
+                    if (character.transform.localScale.x < 0)
+                    {
+                        character.transform.localScale = new Vector3(character.transform.localScale.x, character.transform.localScale.y, 1);
+                    }
+                    else
+                    {
+                        character.transform.localScale = new Vector3(-1 * character.transform.localScale.x, character.transform.localScale.y, 1);
+                    }
+                    animator.SetBool(isWalking, true);
+                }
             }
             else
             {

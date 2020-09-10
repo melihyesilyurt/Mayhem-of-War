@@ -30,12 +30,12 @@ PrefabInstance:
     - target: {fileID: 1360571902762198693, guid: 24ae72b7a4d903a4da4cd905e3a1e127,
         type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
-      value: 2
+      value: 0.37
       objectReference: {fileID: 0}
     - target: {fileID: 1360571902762198693, guid: 24ae72b7a4d903a4da4cd905e3a1e127,
         type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.y
-      value: 2
+      value: 0.52
       objectReference: {fileID: 0}
     - target: {fileID: 1360571902762198693, guid: 24ae72b7a4d903a4da4cd905e3a1e127,
         type: 3}
@@ -300,12 +300,32 @@ PrefabInstance:
     - target: {fileID: 5570011572515273263, guid: 24ae72b7a4d903a4da4cd905e3a1e127,
         type: 3}
       propertyPath: damage
-      value: 10
+      value: 35
       objectReference: {fileID: 0}
     - target: {fileID: 5570011572515273263, guid: 24ae72b7a4d903a4da4cd905e3a1e127,
         type: 3}
       propertyPath: spendedStamina
-      value: 20
+      value: 23
+      objectReference: {fileID: 0}
+    - target: {fileID: 5570011572515273263, guid: 24ae72b7a4d903a4da4cd905e3a1e127,
+        type: 3}
+      propertyPath: missPossiblity
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5570011572515273263, guid: 24ae72b7a4d903a4da4cd905e3a1e127,
+        type: 3}
+      propertyPath: CriticalPossiblity
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5570011572515273263, guid: 24ae72b7a4d903a4da4cd905e3a1e127,
+        type: 3}
+      propertyPath: knockback
+      value: 70
+      objectReference: {fileID: 0}
+    - target: {fileID: 5995559584389549043, guid: 24ae72b7a4d903a4da4cd905e3a1e127,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6824701329243152267, guid: 24ae72b7a4d903a4da4cd905e3a1e127,
         type: 3}
@@ -417,6 +437,26 @@ PrefabInstance:
         type: 3}
       propertyPath: interactionRange
       value: 0.24
+      objectReference: {fileID: 0}
+    - target: {fileID: 9090247263419523042, guid: 24ae72b7a4d903a4da4cd905e3a1e127,
+        type: 3}
+      propertyPath: health
+      value: 175
+      objectReference: {fileID: 0}
+    - target: {fileID: 9090247263419523042, guid: 24ae72b7a4d903a4da4cd905e3a1e127,
+        type: 3}
+      propertyPath: stamina
+      value: 145
+      objectReference: {fileID: 0}
+    - target: {fileID: 9090247263419523042, guid: 24ae72b7a4d903a4da4cd905e3a1e127,
+        type: 3}
+      propertyPath: healthRegeneration
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9090247263419523042, guid: 24ae72b7a4d903a4da4cd905e3a1e127,
+        type: 3}
+      propertyPath: staminaRegeneration
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 24ae72b7a4d903a4da4cd905e3a1e127, type: 3}
