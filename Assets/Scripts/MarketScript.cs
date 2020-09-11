@@ -19,11 +19,10 @@ public class MarketScript : MonoBehaviour
     private int money;
     private int valueOfLock;
     private string bought ="bought";
-   // private int godGift =1000;
+    private int godGift =1000000;
     private void Awake()
     {
-       // PlayerPrefs.DeleteAll();
-        //PlayerPrefs.SetInt("GoldCoin", godGift);
+        PlayerPrefs.SetInt("GoldCoin", godGift);
         GameObject[] locks;
         locks = GameObject.FindGameObjectsWithTag("Lock");
         foreach (GameObject lockImage in locks)
@@ -60,7 +59,6 @@ public class MarketScript : MonoBehaviour
                 {
                     RouteManager.Instance.LoadSecondMap();
                 }
-               // Application.LoadLevel(mapid);
                 PlayerPrefs.SetInt("SelectCharacter", characterid);
             }
         }
@@ -69,7 +67,6 @@ public class MarketScript : MonoBehaviour
     public void GoMainMenu()
     {
         MusicManager.Instance.PlayButtonClip();
-        // Application.LoadLevel(0);
         RouteManager.Instance.LoadMainMenu();
     }
     public void YesPress()
@@ -79,11 +76,8 @@ public class MarketScript : MonoBehaviour
         {
             choosenLock.SetActive(false);
             money -= valueOfLock;
-          //  PlayerPrefs.DeleteKey("GoldCoin");
             PlayerPrefs.SetInt("GoldCoin", money);
-            
             PlayerPrefs.SetString(choosenLock.name,bought);
-           // Debug.Log(choosenLock.name);
         }
         else
         {
@@ -105,7 +99,6 @@ public class MarketScript : MonoBehaviour
     {
         goldAmountText.text =""+ money;
         PlayerPrefs.SetInt("GoldCoin", money);
-       // Debug.Log(PlayerPrefs.GetInt("GoldCoin"));
     }
     public void Lock(GameObject takenLock)
     {

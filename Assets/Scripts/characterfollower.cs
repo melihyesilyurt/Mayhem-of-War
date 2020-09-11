@@ -6,8 +6,6 @@ public class CharacterFollower : MonoBehaviour
 {
     private Transform location;
     public  GameObject character;
-
-    
     void Start()
     {
         location = GetComponent<Transform>();
