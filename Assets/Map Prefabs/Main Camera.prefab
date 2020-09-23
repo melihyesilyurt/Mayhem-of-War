@@ -328,7 +328,7 @@ MonoBehaviour:
     type: 3}
   aloneSamuraiPhoto: {fileID: 4723107735738678597, guid: 0bd97e23f8b532a4f8969605a3b00a4e,
     type: 3}
-  kingPhoto: {fileID: 4723107735738678597, guid: 0e3502a80399d164ea01f1868f65acbf,
+  kingPhoto: {fileID: -6886366809225412869, guid: 0e3502a80399d164ea01f1868f65acbf,
     type: 3}
   healthBar: {fileID: 0}
   staminaBar: {fileID: 0}

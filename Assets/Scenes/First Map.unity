@@ -5727,6 +5727,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &910089841 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4961215889855927066, guid: e75be9f519f506b4bb8b3c947526b96d,
+    type: 3}
+  m_PrefabInstance: {fileID: 1484304744146918635}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42844a4fccbd54746b90cade4ff70f73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &925775303
 GameObject:
   m_ObjectHideFlags: 0
@@ -12703,6 +12715,36 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 509940648}
+    - target: {fileID: 5666403538754410387, guid: e75be9f519f506b4bb8b3c947526b96d,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 509940648}
+    - target: {fileID: 5666403538754410387, guid: e75be9f519f506b4bb8b3c947526b96d,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: AttackButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 5666403538754410387, guid: e75be9f519f506b4bb8b3c947526b96d,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 9040317847179977303, guid: e75be9f519f506b4bb8b3c947526b96d,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 509940648}
+    - target: {fileID: 9040317847179977303, guid: e75be9f519f506b4bb8b3c947526b96d,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: JumpButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 9040317847179977303, guid: e75be9f519f506b4bb8b3c947526b96d,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e75be9f519f506b4bb8b3c947526b96d, type: 3}
 --- !u!1001 &2017115068357608309
@@ -13158,6 +13200,11 @@ PrefabInstance:
       propertyPath: staminaBar
       value: 
       objectReference: {fileID: 375338422}
+    - target: {fileID: 3984424813632041197, guid: 231593b508f89c6438ab0675f9ee2162,
+        type: 3}
+      propertyPath: joystick
+      value: 
+      objectReference: {fileID: 910089841}
     - target: {fileID: 8395998460372608957, guid: 231593b508f89c6438ab0675f9ee2162,
         type: 3}
       propertyPath: character

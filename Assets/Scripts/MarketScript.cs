@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEditor;
 public class MarketScript : MonoBehaviour
 {
     [SerializeField] private Button startGame;
@@ -19,7 +20,7 @@ public class MarketScript : MonoBehaviour
     private int money;
     private int valueOfLock;
     private string bought ="bought";
-    private int godGift =1000000;
+    private static int godGift =1000000;
     private void Awake()
     {
         PlayerPrefs.SetInt("GoldCoin", godGift);
@@ -177,4 +178,10 @@ public class MarketScript : MonoBehaviour
             characterid = 5;
         }
     }
+ /*   [MenuItem("Gift/Give Gift")]
+    public static void AddGift()
+    {
+        PlayerPrefs.SetInt("GoldCoin", PlayerPrefs.GetInt("GoldCoin") + godGift);
+            
+    }*/
 }

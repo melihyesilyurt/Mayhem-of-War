@@ -35,8 +35,13 @@ public class GameInterFace : MonoBehaviour
     [SerializeField] private Sprite kingPhoto;
     public Image healthBar;
     public Image staminaBar;
+    public Button jumpButton;
+    public Button attackButton;
+    public VariableJoystick joystick;
+    private GameObject character;
     void Start()
     {
+        character = GetComponent<CharacterFollower>().character;
         characterid = PlayerPrefs.GetInt("SelectCharacter");
         Debug.Log(characterid);
         Instance = GetComponent<GameInterFace>();
@@ -153,9 +158,18 @@ public class GameInterFace : MonoBehaviour
     }
     public void OpenGameOverMenu()
     {
+        pauseButton.enabled = false;
         audioSource.Stop();
         gameOverMenu.enabled = true;
         Time.timeScale = 0;
+    }
+    public void JumpButton()
+    {
+        character.GetComponent<Character>().Jump();
+    }
+    public void AttackButton()
+    {
+        character.GetComponent<PlayerCombat>().Attack();
     }
     private void CharacterUI()
     {

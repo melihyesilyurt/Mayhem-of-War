@@ -21,6 +21,7 @@ public class Character : MonoBehaviour
     [SerializeField] private AudioClip characterAttackClip;
     private AudioSource audioSource;
     [SerializeField] private GameObject attackArea;
+    private VariableJoystick joystick;
     void Start()
     {
         rigibody = GetComponent<Rigidbody2D>();
@@ -28,19 +29,24 @@ public class Character : MonoBehaviour
         characterStatus = GetComponent<CharacterStatus>();
         footCollider = GetComponent<CapsuleCollider2D>();
         audioSource = GetComponent<AudioSource>();
+        joystick = GameInterFace.Instance.joystick;
     }
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.UpArrow))
+        {
+            Jump();
+        }
+    }
+    public void Jump()
+    {
         if (characterStatus.health > 0)
         {
-            if (Input.GetKeyDown(KeyCode.UpArrow))
-            {
                 if (oneTimeJump)
                 {
                     rigibody.AddForce(new Vector2(0, 300));
                     oneTimeJump = false;
                 }
-            }
         }
     }
     void FixedUpdate()
@@ -82,7 +88,8 @@ public class Character : MonoBehaviour
     public void CharacterMove()
     {
 
-        horizontal = Input.GetAxisRaw("Horizontal");
+        //horizontal = Input.GetAxisRaw("Horizontal");
+        horizontal = joystick.Horizontal;
         rigibody.velocity = new Vector3(horizontal * 3, rigibody.velocity.y, 0);
     }
     public void Animation()
