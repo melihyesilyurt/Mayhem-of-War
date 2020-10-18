@@ -22,20 +22,26 @@ public class Character : MonoBehaviour
     private AudioSource audioSource;
     [SerializeField] private GameObject attackArea;
     private VariableJoystick joystick;
+    private bool joystickBool;
     void Start()
     {
+        joystickBool = false;
         rigibody = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         characterStatus = GetComponent<CharacterStatus>();
         footCollider = GetComponent<CapsuleCollider2D>();
         audioSource = GetComponent<AudioSource>();
-        joystick = GameInterFace.Instance.joystick;
+        //joystick = GameInterFace.Instance.joystick;
     }
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.UpArrow))
         {
             Jump();
+        }
+        if (joystickBool == false)
+        {
+            joystick = GameInterFace.Instance.joystick;
         }
     }
     public void Jump()
@@ -53,8 +59,9 @@ public class Character : MonoBehaviour
     {
         if (characterStatus.health > 0)
         {
-            CharacterMove();
+           
             Animation();
+            CharacterMove();
         }
         else
         {
@@ -87,7 +94,6 @@ public class Character : MonoBehaviour
     }
     public void CharacterMove()
     {
-
         //horizontal = Input.GetAxisRaw("Horizontal");
         horizontal = joystick.Horizontal;
         rigibody.velocity = new Vector3(horizontal * 3, rigibody.velocity.y, 0);

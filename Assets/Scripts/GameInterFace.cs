@@ -16,7 +16,7 @@ public class GameInterFace : MonoBehaviour
     [SerializeField] private GameObject voiceOffButton;
     [SerializeField] private GameObject musicOnButton;
     [SerializeField] private GameObject musicOffButton;
-    [SerializeField] private Canvas settingsMenu;
+    [SerializeField] private GameObject settingsMenu;
     [SerializeField] private Canvas gameOverMenu;
     [SerializeField] private Button reloadButton;
     [SerializeField] private Button goMainMenuButton;
@@ -39,15 +39,20 @@ public class GameInterFace : MonoBehaviour
     public Button attackButton;
     public VariableJoystick joystick;
     private GameObject character;
+    private Character characterScript;
+    private PlayerCombat playerCombat;
     void Start()
     {
         character = GetComponent<CharacterFollower>().character;
+        Instance = GetComponent<GameInterFace>();
         characterid = PlayerPrefs.GetInt("SelectCharacter");
         Debug.Log(characterid);
-        Instance = GetComponent<GameInterFace>();
+
+        characterScript = character.GetComponent<Character>();
+        playerCombat = character.GetComponent<PlayerCombat>();
         gameOverMenu.enabled = false;
         pauseMenu.enabled = false;
-        settingsMenu.enabled = false;
+        settingsMenu.SetActive(false);
         audioSource = GetComponent<AudioSource>();
         if (PlayerPrefs.GetInt("Music") == 0)
         {
@@ -72,6 +77,7 @@ public class GameInterFace : MonoBehaviour
             voiceOnButton.SetActive(false);
         }
         CharacterUI();
+       
     }
     public void OpenPauseMenu()
     {
@@ -83,13 +89,13 @@ public class GameInterFace : MonoBehaviour
     {
         MusicManager.Instance.PlayButtonClip();
         pauseMenu.enabled = false;
-        settingsMenu.enabled = false;
+        settingsMenu.SetActive(false);
         Time.timeScale = 1;
     }
     public void OpenSettingsMenu()
     {
         MusicManager.Instance.PlayButtonClip();
-        settingsMenu.enabled = true;
+        settingsMenu.SetActive(true);
     }
     public void GoMainMenu()
     {
@@ -165,11 +171,11 @@ public class GameInterFace : MonoBehaviour
     }
     public void JumpButton()
     {
-        character.GetComponent<Character>().Jump();
+        characterScript.Jump();
     }
     public void AttackButton()
     {
-        character.GetComponent<PlayerCombat>().Attack();
+        playerCombat.Attack();
     }
     private void CharacterUI()
     {

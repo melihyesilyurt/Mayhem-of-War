@@ -13,17 +13,20 @@ public class CharacterSpawner : MonoBehaviour
     private GameObject choosenCharacter;
     private GameObject spawnedCharacter;
     private int characterid;
-    public void Start()
+    private void Awake()
     {
         characterid = PlayerPrefs.GetInt("SelectCharacter");
         SelectCharacter();
         Spawn();
     }
+    public void Start()
+    {
+        LevelController.Instance.character = spawnedCharacter.transform;
+    }
     public  void Spawn()
     {
         spawnedCharacter= Instantiate(choosenCharacter, spawnPoint.transform.position, spawnPoint.transform.rotation);
         GetComponent<CharacterFollower>().character = spawnedCharacter;
-        LevelController.Instance.character = spawnedCharacter.transform;
     }
     private void SelectCharacter()
    {

@@ -11,8 +11,8 @@ public class MarketScript : MonoBehaviour
     [SerializeField] private Text goldAmountText;
     [SerializeField] private Button yesText;
     [SerializeField] private Button noText;
-    [SerializeField] private Canvas areYouSure;
-    [SerializeField] private Canvas youHaveNoMoney;
+    [SerializeField] private GameObject areYouSure;
+    [SerializeField] private GameObject youHaveNoMoney;
     [SerializeField] private Button closeButton;
     private int characterid;
     private int mapid = 0;
@@ -20,10 +20,8 @@ public class MarketScript : MonoBehaviour
     private int money;
     private int valueOfLock;
     private string bought ="bought";
-    private static int godGift =1000000;
     private void Awake()
     {
-        PlayerPrefs.SetInt("GoldCoin", godGift);
         GameObject[] locks;
         locks = GameObject.FindGameObjectsWithTag("Lock");
         foreach (GameObject lockImage in locks)
@@ -42,8 +40,8 @@ public class MarketScript : MonoBehaviour
     {
         characterid = 0;
         money = PlayerPrefs.GetInt("GoldCoin");
-        areYouSure.enabled = false;
-        youHaveNoMoney.enabled = false;
+        areYouSure.SetActive(false);
+        youHaveNoMoney.SetActive(false);
     }
     public void StartGame()
     {
@@ -82,19 +80,19 @@ public class MarketScript : MonoBehaviour
         }
         else
         {
-            youHaveNoMoney.enabled = true;
+            youHaveNoMoney.SetActive(true);
         }
-        areYouSure.enabled = false;    
+        areYouSure.SetActive(false);  
     }
     public void NoPress()
     {
         MusicManager.Instance.PlayButtonClip();
-        areYouSure.enabled = false;
+        areYouSure.SetActive(false);
     }
     public void close()
     {
         MusicManager.Instance.PlayButtonClip();
-        youHaveNoMoney.enabled = false;
+        youHaveNoMoney.SetActive(false);
     }
     private void Update()
     {
@@ -105,7 +103,7 @@ public class MarketScript : MonoBehaviour
     {
         MusicManager.Instance.PlayButtonClip();
         choosenLock = takenLock;
-        areYouSure.enabled = true;
+        areYouSure.SetActive(true);
         valueOfLock = takenLock.GetComponent<Lock>().value;
     }
     public void ChooseMap(GameObject choosenMap)
